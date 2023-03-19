@@ -1,0 +1,97 @@
+-- local Framework = exports['no-core']:GetSharedObject()
+
+-- exports['nocore-eye']:AddBoxZone("YachtStorage1", vector3(-1598.16, -1897.9, 8.98), 0.8, 0.8, { name="YachtStorage1", heading = 15.0, debugPoly=false, minZ = 8.00, maxZ = 9.05, }, 
+-- 	{ options = { { event = "nocore-yacht:Stash", icon = "fas fa-circle", label = "Хладилник", stash = "fridge1", job = "yacht" }, },
+-- 		distance = 1.5
+-- })
+-- exports['nocore-eye']:AddBoxZone("YachtStorage2", vector3(-1596.12, -1896.97, 8.98), 0.6, 0.6, { name="YachtStorage2", heading = 305.0, debugPoly=false, minZ = 8.00, maxZ = 9.05, }, 
+-- 	{ options = { { event = "nocore-yacht:Stash", icon = "fas fa-circle", label = "Хладилник", stash = "fridge2", job = "yacht" }, },
+-- 		distance = 1.5
+-- })
+-- exports['nocore-eye']:AddBoxZone("YachtMake", vector3(-1598.61, -1894.08, 8.98), 0.8, 1.0, { name="YachtMake", heading = 25.0, debugPoly=false, minZ = 9.0, maxZ = 9.38, }, 
+--     { options = { {  event = "nocore-yacht:Menu:MakingSalata", icon = "fas fa-utensils", label = "Приготвяне", job = "yacht" }, },
+--         distance = 1.0
+-- })
+-- exports['nocore-eye']:AddBoxZone("YachtWash", vector3(-1597.13, -1897.4, 8.98), 0.4, 0.4, { name="YachtWash", heading = 25.0, debugPoly=false, minZ=8.67, maxZ=9.2 }, 
+-- 	{ options = { { event = "nocore-yacht:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		distance = 1.2
+-- })
+
+-- RegisterNetEvent('nocore-yacht:Menu:MakingSalata', function()
+--     exports['nocore-context']:openMenu({
+-- 		{ id = 1, header = "Приготвяне", isMenuHeader = true },
+--         { id = 2, header = Framework.Shared.Items["ovcharskasalata"].label, txt = "- "..Framework.Shared.Items["tomato"].label.."<br>- "..Framework.Shared.Items["cucumber"].label.."<br>- "..Framework.Shared.Items["ham"].label.."<br> - "..Framework.Shared.Items["onion"].label.."<br> - "..Framework.Shared.Items["cheese"].label, params = { event = "nocore-yacht:MakeItem", args = { item = 'ovcharskasalata' } } },
+--     })
+-- end)
+
+-- RegisterNetEvent('nocore-yacht:Stash')
+-- AddEventHandler('nocore-yacht:Stash',function(data)
+-- 	id = data.stash
+--     TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", "yacht_"..id,{
+-- 		maxweight = 100000,
+-- 		slots = 15
+-- 	})
+--     TriggerEvent("nocore-inventory:client:SetCurrentStash", "yacht_"..id)
+-- end)
+
+-- RegisterNetEvent('nocore-yacht:MakeItem')
+-- AddEventHandler('nocore-yacht:MakeItem', function(data)
+--     if data.item == "ovcharskasalata" then
+--         Framework.Functions.TriggerCallback('nocore-yacht:get:'..data.item, function(amount) 
+--             if not amount then TriggerEvent('Framework:Notify', "Нямате нужните съставки", 'error') else YachtFoodProgress(data.item) end		
+--         end)
+--     end
+-- end)
+
+-- RegisterNetEvent('nocore-yacht:washHands')
+-- AddEventHandler('nocore-yacht:washHands',function()
+--     Framework.Functions.Progressbar('washing_hands', 'Миеш си ръцете', 5000, false, false, {
+--         disableMovement = true,
+--         disableCarMovement = true,
+--         disableMouse = false,
+--         disableCombat = true,
+-- 		disableInventory = true,
+--     }, {
+--         animDict = "mp_arresting", 
+--         anim = "a_uncuff", 
+--         flags = 8,
+--     }, {}, {}, function()
+-- 		TriggerEvent('Framework:Notify', "Измихте си ръцете!", 'success')
+--     end, function()
+--         TriggerEvent('nocore-inventory:client:busy:status', false)
+-- 		TriggerEvent('Framework:Notify', "Отказано", 'error')
+--     end)
+-- end)
+
+-- RegisterNetEvent('nocore-yacht:JustGive', function(data) YachtFoodProgress(data.id) end)
+
+-- function YachtFoodProgress(ItemMake)
+-- 	if ItemMake == "ovcharskasalata" then
+-- 		bartext = "Приготвяш"
+-- 		bartime = 7000
+-- 		animDictNow = "anim@heists@prison_heiststation@cop_reactions"
+-- 		animNow = "cop_b_idle"
+-- 	elseif ItemMake == "slivova" then
+-- 		bartext = "Взимаш "..Framework.Shared.Items[ItemMake].label
+-- 		bartime = 3000
+-- 		animDictNow = "mp_ped_interaction"
+-- 		animNow = "handshake_guy_a"
+-- 	end
+-- 	Framework.Functions.Progressbar('making_food', bartext, bartime, false, false, {
+-- 		disableMovement = true,
+-- 		disableCarMovement = true,
+-- 		disableMouse = false,
+-- 		disableCombat = true,
+-- 		disableInventory = true,
+-- 	}, {
+-- 		animDict = animDictNow,
+-- 		anim = animNow,
+-- 		flags = 8,
+-- 	}, {}, {}, function()  
+-- 		TriggerServerEvent('nocore-yacht:GetFood', ItemMake)
+-- 		StopAnimTask(PlayerPedId(), animDictNow, animNow, 1.0)
+-- 	end, function()
+-- 		TriggerEvent('nocore-inventory:client:busy:status', false)
+-- 		TriggerEvent('Framework:Notify', "Отказано", 'error')
+-- 	end, ItemMake)
+-- end

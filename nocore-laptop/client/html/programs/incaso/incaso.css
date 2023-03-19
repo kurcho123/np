@@ -1,0 +1,288 @@
+.program-incaso-header {
+    background: rgba(255,0,0,1);
+    color: #ffffff;
+}
+
+.program-incaso {
+    height: 90%;
+    width: 90%;
+    color: #ffffff;
+}
+
+body {
+	font-family: arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+  }
+
+.icon-incaso {
+    background-position: -240px 0;
+}
+
+.icon-incaso:hover {
+    background-position: -240px -60px;
+}
+
+.icon-incaso:active {
+    background-position: -240px -120px;
+}
+
+.icon-incaso-small {
+    background-position: -251px -193px;
+}
+
+
+.stat-wrapper {
+    width: 200px;
+}
+
+.stat-wrapper .stat-title {
+    font-weight: bold;
+}
+
+
+
+.stat-wrapper .stat-amount {
+    float: right;
+    margin: -16px -52px 0 0 ;
+}
+
+.stat-box {
+    display: inline-block;
+}
+
+
+#dark {
+  position: fixed;
+}
+
+
+.disco {
+  margin-top: 10px;
+  margin-left: 15px;
+  height: 50px;
+  width: 50px;
+  background-color: #36393f;
+  text-align: center;
+  border-radius: 40%;
+  top: 10px;
+}
+
+.disco img {
+  height: 50px;
+  width: 50px;
+  border-radius: 40%;
+}
+
+#hiddendiv {
+  font-family: Garamond, Serif;
+  display:none;
+  width: fit-content;
+  height: 20px;
+  margin-top: 10px;
+  background-color: black;
+}
+
+#nolagrp:hover:not(.active) + #hiddendiv {
+  margin-left: 20px;
+  display: block;
+  color: white;
+}
+
+.disco:hover:not(.active) {
+  background-color: #5865f2;
+}
+
+#sidebar {
+  position: fixed;
+  display: inline-block;
+  height: 44vh;
+  width: 10vw;
+  background-color: #212121;
+  overflow: hidden;
+  float:left;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 16px;
+  text-decoration: none;
+  color: #868a8f;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 9vw;
+  height: 3.5vh;
+  background-color: #2f3136; /*#2f3136;*/
+  font-size: 16px;
+  vertical-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+.profile a {
+  margin-left: 3.5vh;
+}
+.profile img {
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+  top: 5px;
+  max-height: 30px;
+  vertical-align: center;
+  border-radius: 50%;
+}
+
+.profile.active {
+  background-color: #393c43;
+  color: white;
+}
+
+.profile:hover:not(.active) {
+  cursor: pointer;
+  color: white;
+  background-color: #393c43;
+}
+
+
+
+#darkchat {
+  float: left;
+  position: fixed;
+  display: inline-block;
+  width: 52.5vw;
+  height: 46vh;
+  background-color: #434343;
+  overflow: hidden;
+
+}
+
+#chatbox {
+  width: 36vw;
+  height: 28vh;
+  margin-top: 1vh;
+  margin-left: 13vw;
+  background-color: #434343;
+}
+
+#txt {
+  width: 80vw;
+  height: 40px;
+  margin-top: 87vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  background-color: #40444b;
+  border-radius: 10px;
+  color:white;
+  outline: none;
+  border: 0px;
+  padding-left: 20px;
+  background-size: cover;
+}
+
+#textbox {
+  margin-left: 4vw;
+  margin-top: 2vh;
+  width: 36vw;
+  height: 8vh;
+  background-color: #434343;
+  border-radius: 10px;
+}
+
+/* #textbox input {
+  width: 80vw;
+  height: 40px;
+  margin-top: 87vh;
+  margin-left: 5px;
+  margin-right: 0.41vw;
+  background-color: #40444b;
+  border-radius: 10px;
+  color:white;
+  outline: none;
+  border: 0px;
+  padding-left: 20px;
+}*/
+
+.msg {
+  display: flex;
+  align-items: center;
+}
+
+.msgbox {
+  margin-left: 2vh;
+  height: 9vh;
+  width: 30vh;
+  color: white;
+  background-color: #171718;
+  margin-top: 0vh;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.msgtext {
+  font-size: 1.5vh;
+  text-align: center;
+  vertical-align: center;
+}
+
+#textbox button:hover {
+  cursor: pointer;
+  color:white;
+  background-color: #202225;
+}
+
+#textbox button {
+  color:black;
+  height: 2.27vh;
+  width:10vw;
+  margin-top: 20vh;
+  margin-left: 4vh;
+  background-color: #b3792b;
+  border-radius: 50px;
+  font-size: 1.5vh;
+  border: 0;
+}
+
+#header-b {
+  margin-left: 10vw;
+  height: 45px;
+  background-color: #434343;
+  border-bottom: 3px solid #202225;
+  color: #b3792b;
+  resize: horizontal;
+}
+
+#user {
+  display: flex;
+  align-items: center;
+}
+
+#user img {
+  border-radius: 50%;
+  margin-left: 1%;
+  margin-top: 5px;
+  margin-right: 10px;
+  max-height: 35px;
+  vertical-align: center;
+}
+
+#user button {
+  display: inline-block;
+  float: right;
+  white-space: nowrap;
+}
+
+#userplate {
+  font-family: Garamond, Serif;
+  width: fit-content;
+  margin-top: 5px;
+  font-size: 18px;
+  height: 50%;
+  color: white;
+  background-color: transparent;
+  vertical-align: center;
+  border-radius: 5px;
+}

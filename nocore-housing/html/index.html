@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+    <body style="background:rgba(255, 255, 255, 0)">
+        <div class="container" id="noselect">
+            <div class="contract-main">
+                <img src="./img/dynasty8-logo.png" class="dynasty8-logo">
+                <span id="welcome-text">Добре дошли <span id="welcome-name"></span></span>
+                <div class="contract-sub">
+                    <div class="contract-header"><span id="contract-header-text">Договор за покупка на къща</span></div>
+                    <div class="contract-information">
+                        <div class="contract-information-header">
+                            <span id="contract-information-text">Купете къща</span>
+                        </div>
+                        <div class="property-info">
+                            <span class="property-info-text">Адрес #</span>
+                            <div id="propert-info-hr"></div>
+                            <span class="property-info-info" id="property-adress"></span>
+                        </div>
+                        <div class="property-info">
+                            <span class="property-info-text">Цена на къщата</span>
+                            <div id="propert-info-hr"></div>
+                            <span class="property-info-info" id="property-price"></span>
+                        </div>
+                        <div class="property-info">
+                            <span class="property-info-text">Брокерски такси (5%)</span>
+                            <div id="propert-info-hr"></div>
+                            <span class="property-info-info" id="property-brokerfee"></span>
+                        </div>
+                        <!--
+                        <div class="property-info">
+                            <span class="property-info-text">Банкови такси (10%)</span>
+                            <div id="propert-info-hr"></div>
+                            <span class="property-info-info" id="property-bankfee"></span>
+                        </div>   
+                        <div class="property-info">
+                            <span class="property-info-text">Данък (6%)</span>
+                            <div id="propert-info-hr"></div>
+                            <span class="property-info-info" id="property-taxes"></span>
+                        </div>
+                        -->
+                        <div class="property-info">
+                            <span class="property-info-text">Обща цена на къщата</span>
+                            <div id="propert-info-hr"></div>
+                            <span class="property-info-info" id="property-totalprice"></span>
+                        </div>
+                        <div class="property-cancel">
+                            <span id="property-cancel-text">Отказ</span>
+                        </div>
+                        <div class="property-accept">
+                            <span id="property-accept-text">Купете къща</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contract-sell">
+                
+            </div>
+        </div>
+        <div id="decorate">
+            <div class="decorate-header">
+                <div class="decorate-header-buttons">
+                    <div class="header-btn" id="objects-list"><p>Обекти</p></div>
+                    <div class="header-btn" id="close"><p>Изход</p></div>
+                    <div class="header-btn" id="my-objects"><p>Моите обекти</p></div>
+                </div>
+            </div>
+            <div class="object-load-status">
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </div>
+            <div class="decorate-confirm">
+                <p>Наистина ли искате да закупите артикула?</p>
+                <div class="decorate-confirm-buttons">
+                    <button class="btn btn-group btn-spawnobj" id="buy-object">Да</button>
+                    <button class="btn btn-group btn-spawnobj" id="cancel-object">Не</button>
+                </div>
+            </div>
+            <div class="decorate-keys">
+                <ul id="decorate-keys" style="list-style-type:disc;">
+                    <li>F2 за включване / изключване на мишката.</li>
+                    <li>W/S/Мишка за управление на камерата.</li>
+                    <li>Стрелки за преместване на обект.</li>
+                    <li>F3 за превключване между завъртане / преместване.</li>
+                    <li>Q/E за да преместите обекта нагоре / надолу.</li>
+                    <li>LEFTALT да поставите обекта на земята.</li>
+                    <li>ENTER за закупуване / поставяне на артикул.</li>
+                </ul>
+            </div>
+            <div class="decorate-footer">
+                <div class="decorate-footer-buttons">
+                    
+                </div>
+            </div>
+            <div class="decorate-items">
+            </div>
+        </div>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

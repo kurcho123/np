@@ -1,0 +1,407 @@
+-- local Framework = exports['no-core']:GetCoreObject()
+
+-- local PlayerJob = {}
+
+-- RegisterNetEvent('Framework:Client:OnPlayerLoaded')
+-- AddEventHandler('Framework:Client:OnPlayerLoaded', function()
+--     Framework.Functions.GetPlayerData(function(PlayerData)
+--         PlayerJob = PlayerData.job
+-- 		if PlayerData.job.onduty then
+--             if PlayerData.job.name == "pizzathis" then
+--                 TriggerServerEvent("Framework:ToggleDuty")
+--             end
+--         end
+--     end)
+-- end)
+
+-- RegisterNetEvent('Framework:Client:OnJobUpdate')
+-- AddEventHandler('Framework:Client:OnJobUpdate', function(JobInfo)
+--     PlayerJob = JobInfo
+-- end)
+
+-- RegisterNetEvent('Framework:Client:SetDuty')
+-- AddEventHandler('Framework:Client:SetDuty', function(Onduty)
+--     PlayerJob.onduty = Onduty
+-- end)
+
+-- AddEventHandler('onResourceStart', function(resourceName)
+-- 	if (GetCurrentResourceName() == resourceName) then
+-- 	  Citizen.SetTimeout(1250, function()
+-- 		Citizen.Wait(450)
+-- 		Framework.Functions.GetPlayerData(function(PlayerData)
+-- 		  PlayerJob = PlayerData.job
+-- 		end)
+-- 	  end)
+-- 	end
+--   end)
+
+-- RegisterNetEvent('nocore-pizzathis:washHands')
+-- AddEventHandler('nocore-pizzathis:washHands',function()
+--     Framework.Functions.Progressbar('washing_hands', 'Миене на ръце', 5000, false, false, {
+--         disableMovement = true,
+--         disableCarMovement = true,
+--         disableMouse = false,
+--         disableCombat = true,
+-- 		disableInventory = true,
+--     }, {
+--         animDict = "mp_arresting", 
+--         anim = "a_uncuff", 
+--         flags = 8,
+--     }, {}, {}, function()
+-- 		TriggerEvent('Framework:Notify', "Измихте си ръцете!", 'success')
+--     end, function() -- Cancel
+-- 		TriggerEvent('Framework:Notify', "Отказано", 'error')
+--     end, 'fas fa-hand-holding-water')
+-- end)
+
+-- CreateThread(function()
+-- 	-- JobLocation = BoxZone:Create(vector3(803.15, -755.7, 26.48), 39.4, 29.2, { name = "PizzaThis", heading=0.0, debugPoly = false })
+-- 	-- JobLocation:onPlayerInOut(function(isPointInside) 
+-- 	-- 	if LocalPlayer.state.isLoggedIn and not isPointInside and Framework.Functions.GetPlayerData().job.onduty and PlayerJob.name == "pizzathis" then 
+-- 	-- 		Framework.Functions.Notify("Отдалечи се твърде много от работното си място!", "error")
+-- 	-- 		TriggerEvent("nocore-police:client:ToggleDuty") 
+-- 	-- 	end 
+-- 	-- end)		
+
+
+-- 	Blip = AddBlipForCoord(Config.Locations["main"].coords)
+--     SetBlipSprite(Blip, 267)
+--     SetBlipDisplay(Blip, 3)
+--     SetBlipColour(Blip, 43)
+--     SetBlipScale(Blip, 0.8)
+--     SetBlipAsShortRange(Blip, true)
+--     BeginTextCommandSetBlipName("STRING")
+--     AddTextComponentSubstringPlayerName(Config.Locations["main"].label)
+--     EndTextCommandSetBlipName(Blip)
+
+-- 	local debug = false
+-- 	exports['nocore-eye']:AddBoxZone("PizzTray", vector3(811.94, -755.57, 26.78), 0.6, 1.6, { name="PizzTray", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.58, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:StashToppings", icon = "fas fa-box-open", label = "Тава за съставки", stash = "Toppings", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzBase", vector3(811.42, -754.55, 26.78), 0.4, 0.4, { name="PizzBase", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.18, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:Menu:PizzaBase", icon = "fas fa-pizza-slice", label = "Подготовка на пица", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzDough", vector3(806.98, -757.05, 26.78), 1.2, 3.2, { name="PizzDough", heading = 0.0, debugPoly=debug, minZ = 25.78, maxZ = 27.58, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:testoMenu", icon = "fas fa-cookie", label = "Тесто", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzOven", vector3(808.28, -761.19, 26.78), 2.8, 0.7, { name="PizzOven", heading = 0.0, debugPoly=debug, minZ = 26.18, maxZ = 27.38, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:Menu:Oven", icon = "fas fa-temperature-high", label = "Фритюрник", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzJuices", vector3(814.07, -749.35, 26.78), 2.4, 0.6, { name="PizzJuices", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.98, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:Menu:Juices", icon = "fa-solid fa-martini-glass-empty", label = "Напитки", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzChop", vector3(810.45, -765.17, 26.78), 0.6, 0.6, { name="PizzChop", heading = 0.0, debugPoly=debug, minZ = 26.18, maxZ = 27.38, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:Menu:ChoppingBoard", icon = "fas fa-utensils", label = "Дъска за рязане", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzChop2", vector3(809.26, -761.19, 26.78), 0.55, 0.4, { name="PizzChop2", heading = 10.0, debugPoly=debug, minZ = 26.18, maxZ = 27.38, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:Menu:ChoppingBoard", icon = "fas fa-utensils", label = "Дъска за рязане", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzBurner", vector3(814.05, -752.89, 26.78), 2.4, 1.2, { name="PizzBurner", heading = 0.0, debugPoly=debug, minZ = 25.98, maxZ = 27.98, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:Menu:PizzaOven", icon = "fas fa-temperature-high", label = "Камина", job = "pizzathis" }, },
+-- 		  distance = 1.0
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzFridge3", vector3(805.68, -761.62, 26.78), 1.6, 0.6, { name="PizzFridge3", heading = 0.0, debugPoly=debug, minZ = 25.98, maxZ = 28.18, }, 
+-- 		{ options = { {  event = "nocore-pizzathis:Shop", icon = "fas fa-temperature-low", label = "Хладилник", shop = 2, job = "pizzathis" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash1", vector3(809.47, -765.19, 26.78), 0.6, 0.8, { name="PizzWash1", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.38, }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка", }, },
+-- 		  distance = 1.5
+-- 	})		
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash2", vector3(809.25, -760.15, 26.78), 0.8, 0.6, { name="PizzWash2", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.38, }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		  distance = 1.5
+-- 	})		
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash3", vector3(813.35, -755.46, 26.78), 0.4, 0.8, { name="PizzWash3", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.38, }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		  distance = 1.2
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash4", vector3(800.88, -767.88, 26.78), 0.8, 0.6, { name="PizzWash4", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.38, }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка", job = "pizzathis" }, },
+-- 		  distance = 1.5
+-- 	})		
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash5", vector3(800.85, -767.07, 26.78), 0.8, 0.6, { name="PizzWash5", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.38, }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		  distance = 1.5
+-- 	})		
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash6", vector3(800.85, -761.18, 26.78), 0.8, 0.6, { name="PizzWash6", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.38, }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		  distance = 1.2
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash7", vector3(800.89, -762.04, 26.78), 0.8, 0.6, { name="PizzWash7", heading = 0.0, debugPoly=debug, minZ = 26.58, maxZ = 27.38, }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		  distance = 1.2
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash8", vector3(809.9, -765.32, 31.27), 0.6, 0.6, { name="PizzWash8", heading = 0.0, debugPoly=debug, minZ=30.67, maxZ=31.67 }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		  distance = 1.2
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzWash9", vector3(808.91, -765.34, 31.27), 0.6, 0.6, { name="PizzWash9", heading = 0.0, debugPoly=debug, minZ=30.67, maxZ=31.67 }, 
+-- 		{ options = { { event = "nocore-pizzathis:washHands", icon = "fas fa-hand-holding-water", label = "Мивка" }, },
+-- 		  distance = 1.2
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzCounter", vector3(810.98, -752.9, 26.78), 0.6, 0.6, { name="PizzCounter", heading = 9.0, debugPoly=debug, minZ = 26.78, maxZ = 27.58, }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Поръчка", stash = "Counter" }, },
+-- 		  distance = 2.0
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzCounter2", vector3(810.93, -749.92, 26.78), 0.7, 0.7, { name="PizzCounter2", heading = 30.0, debugPoly=debug, minZ = 26.78, maxZ = 27.58, }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Поръчка", stash = "Counter" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzClockin", vector3(807.15, -761.83, 31.27), 1.2, 0.2, { name="PizzClockin", heading = 0.0, debugPoly=debug, minZ = 31.27, maxZ = 32.52, }, 
+-- 		{ options = { { event = "nocore-police:client:ToggleDuty", icon = "fas fa-user-check", label = "Toggle Duty", job = "pizzathis" }, },
+-- 		  distance = 2.0
+-- 	})				
+-- 	exports['nocore-eye']:AddBoxZone("PizzClockin2", vector3(804.44, -760.52, 31.27), 0.4, 0.4, { name="PizzClockin2", heading = 0.0, debugPoly=debug, minZ = 30.87, maxZ = 31.67, }, 
+-- 		{ options = { { event = "nocore-police:client:ToggleDuty", icon = "fas fa-user-check", label = "Toggle Duty", job = "pizzathis" }, },
+-- 		  distance = 2.0
+-- 	})
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable", vector3(807.08, -751.57, 26.78), 1.0, 1.0, { name="PizzTable", heading = 9.0, debugPoly=debug, minZ=25.98, maxZ=27.18 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table1" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable2", vector3(803.13, -751.59, 26.78), 1.0, 1.0, { name="PizzTable2", heading = 9.0, debugPoly=debug, minZ=25.98, maxZ=27.18 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table2" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable3", vector3(799.13, -751.57, 26.78), 1.0, 1.0, { name="PizzTable3", heading = 9.0, debugPoly=debug, minZ=25.98, maxZ=27.18 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table3" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable4", vector3(797.96, -748.86, 26.78), 1.0, 1.0, { name="PizzTable4", heading = 9.0, debugPoly=debug, minZ=25.98, maxZ=27.18 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table4" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable5", vector3(795.25, -751.55, 26.78), 1.0, 1.0, { name="PizzTable5", heading = 9.0, debugPoly=debug, minZ=25.98, maxZ=27.18 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table5" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable6", vector3(799.46, -755.04, 26.78), 1.0, 1.0, { name="PizzTable6", heading = 9.0, debugPoly=debug, minZ=25.98, maxZ=27.18 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table6" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable7", vector3(807.71, -754.9, 26.78), 2.0, 0.8, { name="PizzTable7", heading = 9.0, debugPoly=debug, minZ=26.18, maxZ=26.98 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table7" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable8", vector3(805.61, -754.89, 26.78), 2.0, 0.8, { name="PizzTable8", heading = 9.0, debugPoly=debug, minZ=26.18, maxZ=26.98 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table8" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable9", vector3(803.51, -754.9, 26.78), 2.0, 0.8, { name="PizzTable9", heading = 9.0, debugPoly=debug, minZ=26.18, maxZ=26.98 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table9" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable10", vector3(801.42, -754.93, 26.78), 2.0, 0.8, { name="PizzTable10", heading = 9.0, debugPoly=debug, minZ=26.18, maxZ=26.98 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table10" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable11", vector3(799.32, -757.63, 26.78), 0.8, 1.4, { name="PizzTable11", heading = 9.0, debugPoly=debug, minZ=26.18, maxZ=26.98 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table11" }, },
+-- 		  distance = 2.0
+-- 	})	
+-- 	exports['nocore-eye']:AddBoxZone("PizzTable12", vector3(799.32, -759.72, 26.78), 0.8, 1.4, { name="PizzTable12", heading = 9.0, debugPoly=debug, minZ=26.18, maxZ=26.98 }, 
+-- 		{ options = { { event = "nocore-pizzathis:Stash", icon = "fas fa-hamburger", label = "Маса", stash = "Table12" }, },
+-- 		  distance = 2.0
+-- 	})
+
+-- 	exports['nocore-eye']:AddBoxZone("pizzamenu", vector3(810.72, -751.47, 26.78), 2.2, 0.9, {
+-- 		name="pizzamenu",
+-- 		heading=0,
+-- 		debugPoly=debug,
+-- 		minZ=26.58,
+-- 		maxZ=28.18
+-- 	}, { options = { 
+-- 		{
+-- 			type = 'server',
+-- 			event = 'nocore-printer:restaurantMenus',
+-- 			icon = "fas fa-file-lines",
+-- 			label = "Вземи меню",
+-- 			menu = 'pizza-menu',
+-- 			give = true
+-- 		},
+-- 		{
+-- 			type = 'server',
+-- 			event = 'nocore-printer:restaurantMenus',
+-- 			icon = 'fas fa-file-lines',
+-- 			label = "Виж меню",
+-- 			menu = 'pizza-menu',
+-- 			give = false
+-- 		}
+-- 	},
+-- 		distance = 2.0
+-- 	})
+
+-- 	if box == nil then
+-- 		RequestModel(604847691)
+-- 		Wait(100)
+-- 		local box = CreateObject(604847691,810.94, -749.94, 28.03-1.0,false,false,false)
+-- 		SetEntityHeading(box,GetEntityHeading(box)-150)
+-- 		FreezeEntityPosition(box, true)
+-- 	end
+-- 	if box2 == nil then
+-- 		RequestModel(-856584171)
+-- 		Wait(100)
+-- 		local box2 = CreateObject(-856584171,810.98, -752.89, 28.03-1.0,false,false,false)
+-- 		SetEntityHeading(box2,GetEntityHeading(box2)-80)
+-- 		FreezeEntityPosition(box2, true)
+-- 	end
+-- 	if clockin == nil then
+-- 		RequestModel(502084445)
+-- 		Wait(100)
+-- 		local clockin = CreateObject(502084445,807.07, -761.83, 31.27,false,false,false)
+-- 		SetEntityHeading(clockin,GetEntityHeading(clockin)-270)
+-- 		FreezeEntityPosition(clockin, true)
+-- 	end
+-- end)
+
+-- RegisterNetEvent('nocore-pizzathis:testoMenu', function()
+--     exports['nocore-context']:openMenu({
+-- 		{ id = 1, header = "Тесто", isMenuHeader = true },
+--         { id = 2, header = Framework.Shared.Items["pizzadough"].label, icon = 'pizzadough', txt = "- "..Framework.Shared.Items["flour"].label.."<br>- "..Framework.Shared.Items["eggs"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'pizzadough' } } },
+--     })
+-- end)
+
+-- RegisterNetEvent('nocore-pizzathis:MakeItem')
+-- AddEventHandler('nocore-pizzathis:MakeItem', function(data)
+-- 	if not Framework.Functions.GetPlayerData().job.onduty then TriggerEvent('Framework:Notify', "Не сте на смяна", 'error') else
+-- 		if data.item == "bolognese" or data.item == "calamari" or data.item == "meatball" or data.item == "alla" or data.item == "pescatore" or data.item == "capricciosabox" or data.item == "diavolabox" or data.item == "marinarabox" or data.item == "margheritabox" or data.item == "prosciuttiobox" or data.item == "vegetarianabox" or data.item == "pizzabase" or data.item == "salami" or data.item == "ham" or data.item == "pizzadough" or data.item == "milkshake" or data.item == "applejuice" or data.item == "orangejuice" then
+-- 			Framework.Functions.TriggerCallback('nocore-pizzathis:get:'..data.item, function(amount) 
+-- 				if not amount then TriggerEvent('Framework:Notify', "Нямате нужните съставки", 'error') else PizzaFoodProgress(data.item) end		
+-- 			end)
+-- 		end
+-- 	end
+-- end)
+
+-- RegisterNetEvent('nocore-pizzathis:Shop')
+-- AddEventHandler('nocore-pizzathis:Shop',function(data)
+-- 	if not Framework.Functions.GetPlayerData().job.onduty then TriggerEvent('Framework:Notify', "Не сте на смяна", 'error') else
+-- 		if data.shop == 1 then
+-- 			-- TriggerServerEvent("inventory:server:OpenInventory", "shop", "pizzathis", Config.DrinkItems)
+-- 		elseif data.shop == 2 then
+-- 			TriggerServerEvent("nocore-inventory:server:OpenInventory", "shop", "pizzathis", Config.FoodItems)		
+-- 		elseif data.shop == 3 then
+-- 			-- TriggerServerEvent("inventory:server:OpenInventory", "shop", "pizzathis", Config.FreezerItems)
+-- 		end
+-- 	end
+-- end)
+
+-- RegisterNetEvent('nocore-pizzathis:Stash')
+-- AddEventHandler('nocore-pizzathis:Stash',function(data)
+-- 	id = data.stash
+--     TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", "pizza_"..id,{
+-- 		maxweight = 100000,
+-- 		slots = 10
+-- 	})
+--     TriggerEvent("nocore-inventory:client:SetCurrentStash", "pizza_"..id)
+-- end)
+
+-- RegisterNetEvent('nocore-pizzathis:StashToppings', function()
+--     TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", "Toppings",{
+-- 		maxweight = 1000000,
+-- 		slots = 40
+-- 	})
+--     TriggerEvent("nocore-inventory:client:SetCurrentStash", "Toppings")
+-- end)
+
+-- -- // Functions \\
+
+-- function PizzaFoodProgress(ItemMake)
+-- 	if ItemMake == "pizzadough" then
+-- 		bartext = "Взимане на "..Framework.Shared.Items[ItemMake].label
+-- 		bartime = 7000
+-- 		animDictNow = "anim@heists@prison_heiststation@cop_reactions"
+-- 		animNow = "cop_b_idle"	
+-- 	elseif ItemMake == "pizzabase" or ItemMake == "ham" or ItemMake == "salami" then
+-- 		bartext = "Приготвяне на "..Framework.Shared.Items[ItemMake].label
+-- 		bartime = 7000
+-- 		animDictNow = "anim@heists@prison_heiststation@cop_reactions"
+-- 		animNow = "cop_b_idle"
+-- 	elseif ItemMake == "bolognese" or ItemMake == "calamari" or ItemMake == "meatball" or ItemMake == "alla" or ItemMake == "pescatore" or ItemMake == "capricciosabox" or ItemMake == "diavolabox" or ItemMake == "marinarabox"  or ItemMake == "margheritabox"  or ItemMake == "prosciuttiobox"  or ItemMake == "vegetarianabox" then
+-- 		bartext = "Готвене на "..Framework.Shared.Items[ItemMake].label
+-- 		bartime = 5000
+--         animDictNow = "amb@prop_human_bbq@male@base"
+--         animNow = "base"
+-- 	elseif ItemMake == "milkshake" or ItemMake == "applejuice" or ItemMake == "orangejuice" then
+-- 		bartext = "Приготвяне на "..Framework.Shared.Items[ItemMake].label
+-- 		bartime = 7000
+-- 		animDictNow = "mp_ped_interaction"
+-- 		animNow = "handshake_guy_a"
+-- 	end
+-- 	Framework.Functions.Progressbar('making_pizzafood', bartext, bartime, false, false, {
+-- 		disableMovement = true,
+-- 		disableCarMovement = true,
+-- 		disableMouse = false,
+-- 		disableCombat = true,
+-- 		disableInventory = true
+-- 	}, {
+-- 		animDict = animDictNow,
+-- 		anim = animNow,
+-- 		flags = 8,
+-- 	},	{}, {}, function()
+-- 		TriggerServerEvent('nocore-pizzathis:GetFood', ItemMake)
+-- 		StopAnimTask(PlayerPedId(), animDictNow, animNow, 1.0)
+-- 	end, function() -- Cancel
+-- 		TriggerEvent('Framework:Notify', "Отказано", 'error')
+-- 	end, ItemMake)
+-- end
+
+-- -- // Utilities \\ 
+
+-- RegisterNetEvent('nocore-pizzathis:Menu:Oven', function()
+--     exports['nocore-context']:openMenu({
+-- 		{ id = 1, header = "Фритюрник", isMenuHeader = true },
+--         { id = 2, header = Framework.Shared.Items["bolognese"].label, icon = 'bolognese', txt = "- "..Framework.Shared.Items["meat"].label.."<br>- "..Framework.Shared.Items["sauce"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'bolognese' } } },
+--         { id = 3, header = Framework.Shared.Items["calamari"].label, icon = 'calamari', txt = "- "..Framework.Shared.Items["squid"].label.."<br>- "..Framework.Shared.Items["sauce"].label.."<br>- "..Framework.Shared.Items["pasta"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'calamari' } } },
+--         { id = 4, header = Framework.Shared.Items["meatball"].label, icon = 'meatball', txt = "- "..Framework.Shared.Items["meat"].label.."<br>- "..Framework.Shared.Items["pasta"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'meatball' } } },
+--         { id = 5, header = Framework.Shared.Items["alla"].label, icon = 'alla', txt = "- "..Framework.Shared.Items["ham"].label.."<br>- "..Framework.Shared.Items["pasta"].label.."<br>- "..Framework.Shared.Items["vodka"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'alla' } } },
+--         { id = 6, header = Framework.Shared.Items["pescatore"].label, icon = 'pescatore', txt = "- "..Framework.Shared.Items["squid"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'pescatore' } } },
+--     })
+-- end)
+-- RegisterNetEvent('nocore-pizzathis:Menu:Juices', function()
+--     exports['nocore-context']:openMenu({
+-- 		{ id = 1, header = "Напитки", isMenuHeader = true },
+--         { id = 2, header = Framework.Shared.Items["milkshake"].label, icon = 'milkshake', txt = "- "..Framework.Shared.Items["strawberry"].label.."<br>- 2x "..Framework.Shared.Items["sugar"].label.."<br>- 3x "..Framework.Shared.Items["distilledwater"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'milkshake' } } },
+--         { id = 2, header = Framework.Shared.Items["applejuice"].label, icon = 'applejuice', txt = "- "..Framework.Shared.Items["apple"].label.."<br>- 2x "..Framework.Shared.Items["sugar"].label.."<br>- 3x "..Framework.Shared.Items["distilledwater"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'applejuice' } } },
+--         { id = 2, header = Framework.Shared.Items["orangejuice"].label, icon = 'orangejuice', txt = "- "..Framework.Shared.Items["orange"].label.."<br>- 2x "..Framework.Shared.Items["sugar"].label.."<br>- 3x "..Framework.Shared.Items["distilledwater"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'orangejuice' } } },
+--     })
+-- end)
+-- RegisterNetEvent('nocore-pizzathis:Menu:PizzaBase', function()
+--     exports['nocore-context']:openMenu({
+-- 		{ header = "Подготовка на пица", isMenuHeader = true },
+--         { header = Framework.Shared.Items["pizzabase"].label, icon = 'pizzabase', txt = "- "..Framework.Shared.Items["pizzadough"].label.."<br>- "..Framework.Shared.Items["sauce"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'pizzabase' } } },
+--     })
+-- end)
+-- RegisterNetEvent('nocore-pizzathis:Menu:PizzaOven', function()
+--     exports['nocore-context']:openMenu({
+-- 		{ id = 1, header = "Пица", isMenuHeader = true },
+--         { id = 2, header = Framework.Shared.Items["margherita"].label, icon = 'margherita', txt = "- "..Framework.Shared.Items["pizzabase"].label.."<br>- "..Framework.Shared.Items["mozz"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'margheritabox' } } },
+--         { id = 3, header = Framework.Shared.Items["marinara"].label, icon = 'marinara', txt = "- "..Framework.Shared.Items["pizzabase"].label.."<br>- "..Framework.Shared.Items["basil"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'marinarabox' } } },
+--         { id = 4, header = Framework.Shared.Items["prosciuttio"].label, icon = 'prosciuttio', txt = "- "..Framework.Shared.Items["pizzabase"].label.."<br>- "..Framework.Shared.Items["mozz"].label.."<br>- "..Framework.Shared.Items["ham"].label.."<br> - "..Framework.Shared.Items["pizzmushrooms"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'prosciuttiobox' } } },
+--         { id = 5, header = Framework.Shared.Items["diavola"].label, icon = 'diavola', txt = "- "..Framework.Shared.Items["pizzabase"].label.."<br>- "..Framework.Shared.Items["mozz"].label.."<br>- "..Framework.Shared.Items["salami"].label.."<br> - "..Framework.Shared.Items["basil"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'diavolabox' } } },
+--         { id = 6, header = Framework.Shared.Items["capricciosa"].label, icon = 'capricciosa', txt = "- "..Framework.Shared.Items["pizzabase"].label.."<br>- "..Framework.Shared.Items["ham"].label.."<br>- "..Framework.Shared.Items["pizzmushrooms"].label.."<br> - "..Framework.Shared.Items["olives"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'capricciosabox' } } },
+--         { id = 7, header = Framework.Shared.Items["vegetariana"].label, icon = 'vegetariana', txt = "- "..Framework.Shared.Items["pizzabase"].label.."<br>- "..Framework.Shared.Items["mozz"].label.."<br>- "..Framework.Shared.Items["lettuce"].label.."<br> - "..Framework.Shared.Items["basil"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'vegetarianabox' } } },
+--     })
+-- end)
+-- RegisterNetEvent('nocore-pizzathis:Menu:ChoppingBoard', function()
+--     exports['nocore-context']:openMenu({
+-- 		{ id = 1, header = "Дъска за рязане", isMenuHeader = true },
+--         { id = 2, header = Framework.Shared.Items["salami"].label, icon = 'salami', txt = "- "..Framework.Shared.Items["meat"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'salami' } } },
+--         { id = 3, header = Framework.Shared.Items["ham"].label, icon = 'ham', txt = "- "..Framework.Shared.Items["meat"].label, params = { event = "nocore-pizzathis:MakeItem", args = { item = 'ham' } } },
+--     })
+-- end)
+
+-- RegisterNetEvent('nocore-pizzathis:JustGive', function(data) 
+-- 	if not Framework.Functions.GetPlayerData().job.onduty then 
+-- 		TriggerEvent('Framework:Notify', "Не сте на смяна", 'error') 
+-- 	else 
+-- 		PizzaFoodProgress(data.id) 
+-- 	end 
+-- end)

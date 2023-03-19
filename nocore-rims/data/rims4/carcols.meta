@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    
+<CVehicleModelInfoVarGlobal>    
+  <Wheels>
+    <Item/> <!-- VWT_SPORT -->
+    <Item/> <!-- VWT_MUSCLE -->
+    <Item/> <!-- VWT_LOWRIDER -->
+    <Item/> <!-- VWT_SUV -->
+    <Item> <!-- VWT_OFFROAD -->    
+	<Item>
+        <wheelName>wheel_off_a20</wheelName>
+        <wheelVariation>wheel_off_a20w</wheelVariation>
+        <modShopLabel>Mudslinger MKII</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_a20</wheelName>
+        <wheelVariation>wheel2_off_a20w</wheelVariation>
+        <modShopLabel>Mudslinger MKII C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_a21</wheelName>
+        <wheelVariation>wheel_off_a21w</wheelVariation>
+        <modShopLabel>Three-Piece</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_a21</wheelName>
+        <wheelVariation>wheel2_off_a21w</wheelVariation>
+        <modShopLabel>Three-Piece C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_a22</wheelName>
+        <wheelVariation>wheel_off_a22w</wheelVariation>
+        <modShopLabel>High Fives</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_a22</wheelName>
+        <wheelVariation>wheel2_off_a22w</wheelVariation>
+        <modShopLabel>High Fives C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_11</wheelName>
+        <wheelVariation>wheel_off_11w</wheelVariation>
+        <modShopLabel>Raider Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_12</wheelName>
+        <wheelVariation>wheel_off_12w</wheelVariation>
+        <modShopLabel>Mudslinger Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_b20</wheelName>
+        <wheelVariation>wheel_off_b20w</wheelVariation>
+        <modShopLabel>Mudslinger MKII Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_13</wheelName>
+        <wheelVariation>wheel_off_13w</wheelVariation>
+        <modShopLabel>Nevis Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+	  </Item>
+	<Item>
+        <wheelName>wheel_off_14</wheelName>
+        <wheelVariation>wheel_off_14w</wheelVariation>
+        <modShopLabel>Cairngorm Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_15</wheelName>
+        <wheelVariation>wheel_off_15w</wheelVariation>
+        <modShopLabel>Amazon Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_16</wheelName>
+        <wheelVariation>wheel_off_16w</wheelVariation>
+        <modShopLabel>Challenger Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+       <wheelName>wheel_off_17</wheelName>
+        <wheelVariation>wheel_off_17w</wheelVariation>
+        <modShopLabel>Dune Basher Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_18</wheelName>
+        <wheelVariation>wheel_off_18w</wheelVariation>
+        <modShopLabel>Five Star Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_19</wheelName>
+        <wheelVariation>wheel_off_19w</wheelVariation>
+        <modShopLabel>Rock Crawler Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_20</wheelName>
+        <wheelVariation>wheel_off_20w</wheelVariation>
+        <modShopLabel>Mil Spec Steelie Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_b21</wheelName>
+        <wheelVariation>wheel_off_b21w</wheelVariation>
+        <modShopLabel>Three-Piece Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_b22</wheelName>
+        <wheelVariation>wheel_off_b22w</wheelVariation>
+        <modShopLabel>High Fives Performance</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_11</wheelName>
+        <wheelVariation>wheel2_off_11w</wheelVariation>
+        <modShopLabel>Raider Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_12</wheelName>
+        <wheelVariation>wheel2_off_12w</wheelVariation>
+        <modShopLabel>Mudslinger Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_b20</wheelName>
+        <wheelVariation>wheel2_off_b20w</wheelVariation>
+        <modShopLabel>Mudslinger MKII Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_13</wheelName>
+        <wheelVariation>wheel2_off_13w</wheelVariation>
+        <modShopLabel>Nevis Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+	  </Item>
+	<Item>
+        <wheelName>wheel2_off_14</wheelName>
+        <wheelVariation>wheel2_off_14w</wheelVariation>
+        <modShopLabel>Cairngorm Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_15</wheelName>
+        <wheelVariation>wheel2_off_15w</wheelVariation>
+        <modShopLabel>Amazon Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_16</wheelName>
+        <wheelVariation>wheel2_off_16w</wheelVariation>
+        <modShopLabel>Challenger Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+       <wheelName>wheel2_off_17</wheelName>
+        <wheelVariation>wheel2_off_17w</wheelVariation>
+        <modShopLabel>Dune Basher Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_18</wheelName>
+        <wheelVariation>wheel2_off_18w</wheelVariation>
+        <modShopLabel>Five Star Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_19</wheelName>
+        <wheelVariation>wheel2_off_19w</wheelVariation>
+        <modShopLabel>Rock Crawler Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_20</wheelName>
+        <wheelVariation>wheel2_off_20w</wheelVariation>
+        <modShopLabel>Mil Spec Steelie Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_b21</wheelName>
+        <wheelVariation>wheel2_off_b21w</wheelVariation>
+        <modShopLabel>Three-Piece Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_b22</wheelName>
+        <wheelVariation>wheel2_off_b22w</wheelVariation>
+        <modShopLabel>High Fives Performance C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>  	
+		<wheelName>wheel_off_21</wheelName>
+        <wheelVariation>wheel_off_21w</wheelVariation>
+        <modShopLabel>Raider Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_22</wheelName>
+        <wheelVariation>wheel_off_22w</wheelVariation>
+        <modShopLabel>Mudslinger Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_31</wheelName>
+        <wheelVariation>wheel_off_31w</wheelVariation>
+        <modShopLabel>Mudslinger MKII Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_23</wheelName>
+        <wheelVariation>wheel_off_23w</wheelVariation>
+        <modShopLabel>Nevis Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+	  </Item>
+	<Item>
+        <wheelName>wheel_off_24</wheelName>
+        <wheelVariation>wheel_off_24w</wheelVariation>
+        <modShopLabel>Cairngorm Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_25</wheelName>
+        <wheelVariation>wheel_off_25w</wheelVariation>
+        <modShopLabel>Amazon Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_26</wheelName>
+        <wheelVariation>wheel_off_26w</wheelVariation>
+        <modShopLabel>Challenger Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+       <wheelName>wheel_off_27</wheelName>
+        <wheelVariation>wheel_off_27w</wheelVariation>
+        <modShopLabel>Dune Basher Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_28</wheelName>
+        <wheelVariation>wheel_off_28w</wheelVariation>
+        <modShopLabel>Five Star Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_29</wheelName>
+        <wheelVariation>wheel_off_29w</wheelVariation>
+        <modShopLabel>Rock Crawler Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_30</wheelName>
+        <wheelVariation>wheel_off_30w</wheelVariation>
+        <modShopLabel>Mil Spec Steelie Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+	  </Item>
+	<Item>
+        <wheelName>wheel_off_32</wheelName>
+        <wheelVariation>wheel_off_32w</wheelVariation>
+        <modShopLabel>Three-Piece Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel_off_33</wheelName>
+        <wheelVariation>wheel_off_33w</wheelVariation>
+        <modShopLabel>High Fives Mud</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_21</wheelName>
+        <wheelVariation>wheel2_off_21w</wheelVariation>
+        <modShopLabel>Raider Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_22</wheelName>
+        <wheelVariation>wheel2_off_22w</wheelVariation>
+        <modShopLabel>Mudslinger Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_31</wheelName>
+        <wheelVariation>wheel2_off_31w</wheelVariation>
+        <modShopLabel>Mudslinger MKII Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_23</wheelName>
+        <wheelVariation>wheel2_off_23w</wheelVariation>
+        <modShopLabel>Nevis Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+	  </Item>
+	<Item>
+        <wheelName>wheel2_off_24</wheelName>
+        <wheelVariation>wheel2_off_24w</wheelVariation>
+        <modShopLabel>Cairngorm Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_25</wheelName>
+        <wheelVariation>wheel2_off_25w</wheelVariation>
+        <modShopLabel>Amazon Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_26</wheelName>
+        <wheelVariation>wheel2_off_26w</wheelVariation>
+        <modShopLabel>Challenger Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+       <wheelName>wheel2_off_27</wheelName>
+        <wheelVariation>wheel2_off_27w</wheelVariation>
+        <modShopLabel>Dune Basher Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_28</wheelName>
+        <wheelVariation>wheel2_off_28w</wheelVariation>
+        <modShopLabel>Five Star Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_29</wheelName>
+        <wheelVariation>wheel2_off_29w</wheelVariation>
+        <modShopLabel>Rock Crawler Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_30</wheelName>
+        <wheelVariation>wheel2_off_30w</wheelVariation>
+        <modShopLabel>Mil Spec Steelie Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_32</wheelName>
+        <wheelVariation>wheel2_off_32w</wheelVariation>
+        <modShopLabel>Three-Piece Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	<Item>
+        <wheelName>wheel2_off_33</wheelName>
+        <wheelVariation>wheel2_off_33w</wheelVariation>
+        <modShopLabel>High Fives Mud C</modShopLabel>
+        <rimRadius value="0.320000"/>
+        <rear value="false"/>
+      </Item>
+	</Item>
+    <Item/> <!-- VWT_TUNER -->
+    <Item/> <!-- VWT_BIKE -->
+    <Item/> <!-- VWT_HIEND -->
+    <Item/> <!-- VWT_SUPERMOD1 -->
+    <Item/> <!-- VWT_SUPERMOD2 -->
+    <Item/>
+  </Wheels>
+</CVehicleModelInfoVarGlobal>

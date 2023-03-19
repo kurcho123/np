@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title>NoLag Jobs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/03d2e1761d.js" crossorigin="anonymous"></script>
+</head>    
+<body>
+    
+    <div class="js-title">
+        <img src="assets/img/lsc.png">
+    </div>
+      
+    <div id="wrapper" style="display: none">
+
+        <div class="card">
+            <i class="fas fa-users"></i>
+            <h2 class="card-title">Безработен</h2>
+            <p class="card-title"></p>
+            <button id="unemployed" onclick="select()">Избери</button>
+        </div>
+        <div class="card">
+          <i class="fas fa-mail-bulk"></i>
+          <h2 class="card-title">Speedy</h2>
+          <p class="card-title"></p>
+          <button id="courier" onclick="select2()">Избери</button>
+        </div>
+        <!-- <div class="card">
+            <i class="fas fa-truck-moving"></i>
+            <h2 class="card-title">Тираджия</h2>
+            <p class="card-title"></p>
+            <button id="trucker" onclick="select3()">Избери</button>
+        </div> -->
+        <div class="card">
+                <i class="fas fa-bus"></i>
+            <h2 class="card-title">BusDrive ООД</h2>
+            <p class="card-title"></p>
+            <button id="busdriver" onclick="select5()">Избери</button>
+        </div>
+        <div class="card">
+          <i class="fab fa-pagelines"></i>
+            <h2 class="card-title">Градинар</h2>
+            <p class="card-title"></p>
+            <button id="gardener" onclick="select6()">Избери</button>
+        </div>
+        <div class="card">
+          <i class="fas fa-trash-alt"></i>
+          <h2 class="card-title">Боклукджия</h2>
+          <p class="card-title"></p>
+          <button id="garbage" onclick="select7()">Избери</button>
+        </div>
+
+       <button  id="slideLeft"></button>
+       <button  id="slideRight"></button>
+
+
+    </div>
+  <div id="myTables">
+      <img class="tablesplan" id="img01" src="assets/img/tables.jpg">
+      <div class="tables" style="bottom: 9vh; right: 13vh;">
+          <button onclick="Dropdown('Table1')" class="dropbtn">1</button>
+          <div id="Table1" class="dropdown-content">
+            <a class="tableset">Work</a>
+            <a class="tableset">Wine</a>
+            <a class="tableset">Menus</a>
+            <a class="tableset">Clear</a>
+          </div>
+      </div>
+      <div class="tables" style="bottom: 9vh; right: 56.7vh;">
+          <button onclick="Dropdown('Table2')" class="dropbtn">2</button>
+          <div id="Table2" class="dropdown-content">
+            <a class="tableset">Menus</a>
+            <a class="tableset">Clear</a>
+          </div>
+      </div>
+      <div class="tables" style="bottom: 9vh; right: 74.88vh;">
+          <button onclick="Dropdown('Table3')" class="dropbtn">3</button>
+          <div id="Table3" class="dropdown-content">
+              <a class="tableset">Menus</a>
+              <a class="tableset">Wine</a>
+              <a class="tableset">Clear</a>
+          </div>
+      </div>
+      <div class="tables" style="bottom: 32.4vh; right: 77.1vh;">
+          <button onclick="Dropdown('Table4')" class="dropbtn">4</button>
+          <div id="Table4" class="dropdown-content">
+              <a class="tableset">Menus</a>
+              <a class="tableset">Clear</a>
+          </div>
+      </div>
+      <div class="tables" style="top: 11vh; left: 12.3vh;">
+          <button onclick="Dropdown('Table5')" class="dropbtn">5</button>
+          <div id="Table5" class="dropdown-content">
+              <a class="tableset">Menus</a>
+              <a class="tableset">Dildos</a>
+              <a class="tableset">Clear</a>
+          </div>
+      </div>
+      <div class="tables" style="top: 11vh; left: 34.5vh;">
+          <button onclick="Dropdown('Table6')" class="dropbtn">6</button>
+          <div id="Table6" class="dropdown-content">
+              <a class="tableset">Menus</a>
+              <a class="tableset">Gaz</a>
+              <a class="tableset">Clear</a>
+          </div>
+      </div>
+      <div class="tables" style="top: 32vh; right: 15vh;">
+          <button onclick="Dropdown('Table7')" class="dropbtn">7</button>
+          <div id="Table7" class="dropdown-content">
+              <a class="tableset">Menus</a>
+              <a class="tableset">Work</a>
+              <a class="tableset">Clear</a>
+          </div>
+      </div>
+  </div>
+
+<script>
+    const buttonRight = document.getElementById('slideRight');
+    const buttonLeft = document.getElementById('slideLeft');
+
+    buttonRight.onclick = function () {
+      document.getElementById('wrapper').scrollLeft += 100;
+    };
+    buttonLeft.onclick = function () {
+      document.getElementById('wrapper').scrollLeft -= 100;
+    };
+
+function select() { // Unemployed
+  const currentStatus = $("#unemployed").html()
+  if (currentStatus == "Избери") {
+    $("#unemployed").html("Избрано")
+    $("#courier").html("Избери")
+    $("#trucker").html("Избери")
+    $("#busdriver").html("Избери")
+    $("#gardener").html("Избери")
+    $("#garbage").html("Избери")
+  }
+  $.post('https://nocore-jobs/newJob', JSON.stringify({
+    job: "unemployed"
+  }));
+}
+
+function select2() { // Courier
+  const currentStatus = $("#courier").html()
+  if (currentStatus == "Избери") {
+    $("#courier").html("Избрано")
+    $("#unemployed").html("Избери")
+    $("#trucker").html("Избери")
+    $("#busdriver").html("Избери")
+    $("#gardener").html("Избери")
+    $("#garbage").html("Избери")
+  }
+  $.post('https://nocore-jobs/newJob', JSON.stringify({
+    job: "courier"
+  }));
+}
+
+function select3() { // Тираджия
+  const currentStatus = $("#trucker").html()
+  if (currentStatus == "Избери") {
+    $("#trucker").html("Избрано")
+    $("#unemployed").html("Избери")
+    $("#courier").html("Избери")
+    $("#busdriver").html("Избери")
+    $("#gardener").html("Избери")
+    $("#garbage").html("Избери")
+  }
+  $.post('https://nocore-jobs/newJob', JSON.stringify({
+    job: "trucker"
+  }));
+}
+
+function select5() { // Busdriver
+  const currentStatus = $("#busdriver").html()
+  if (currentStatus == "Избери") {
+    $("#busdriver").html("Избрано")
+    $("#unemployed").html("Избери")
+    $("#courier").html("Избери")
+    $("#trucker").html("Избери")
+    $("#gardener").html("Избери")
+    $("#garbage").html("Избери")
+  }
+  $.post('https://nocore-jobs/newJob', JSON.stringify({
+    job: "busdriver"
+  }));
+}
+
+function select6() { // Градинар
+  const currentStatus = $("#gardener").html()
+  if (currentStatus == "Избери") {
+    $("#gardener").html("Избрано")
+    $("#unemployed").html("Избери")
+    $("#courier").html("Избери")
+    $("#trucker").html("Избери")
+    $("#busdriver").html("Избери")
+    $("#garbage").html("Избери")
+  }
+  $.post('https://nocore-jobs/newJob', JSON.stringify({
+    job: "gardener"
+  }));
+}
+
+function select7() { // Garbage
+  const currentStatus = $("#garbage").html()
+  if (currentStatus == "Избери") {
+    $("#garbage").html("Избрано")
+    $("#unemployed").html("Избери")
+    $("#courier").html("Избери")
+    $("#trucker").html("Избери")
+    $("#busdriver").html("Избери")
+    $("#gardener").html("Избери")
+  }
+  $.post('https://nocore-jobs/newJob', JSON.stringify({
+    job: "garbage"
+  }));
+}
+
+$(function () {
+  DisplayTableSet(false);
+
+  window.addEventListener('message', function (event) {
+    if (event.data.show == true) {
+      $(".js-title").fadeIn(500)
+      $("#wrapper").fadeIn(500)
+      $(':root').css('background-color', 'rgba(0, 0, 0, 0.7)');
+      $("#gardener").html("Избери")
+      $("#unemployed").html("Избери")
+      $("#courier").html("Избери")
+      $("#trucker").html("Избери")
+      $("#busdriver").html("Избери")
+      $(`#${event.data.job}`).html("Избрано")
+    } else if (event.data.show == false) {
+      $(".js-title").fadeOut(500)
+      $("#wrapper").fadeOut(500)
+      $(':root').css('background-color', '');
+    }
+    var item = event.data;
+    switch(item.type) {
+      case "openTables":
+          DisplayTableSet(true);
+          break;
+      case "close":
+          $.post(`https://nocore-jobs/close`)
+          break;
+      }
+  })
+})
+
+$(document).ready(() => {
+  document.onkeyup = function (data) {
+    if (data.which == 27) {
+      $.post('https://nocore-jobs/escape', JSON.stringify({}));
+      DisplayTableSet(false);
+      $.post(`https://nocore-jobs/close`)
+    }
+  }
+})
+
+function DisplayTableSet(bool) {
+    if(bool) {
+        $("#myTables").fadeIn(500);
+    } else {
+        $("#myTables").fadeOut(500);
+    }
+}
+
+function Dropdown(id) {
+  document.getElementById(id).classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+$(document).on('click', '.tableset', function(e){
+    e.preventDefault();
+    var pid = this.parentNode.id;
+    var tableid = pid.charAt(pid.length-1);
+    var tableset = $(this).html();
+    console.log(tableset)
+    if (tableset == 'Clear') {
+        $.post('https://nocore-jobs/ClearTable', JSON.stringify({
+            table: tableid
+        }))
+    } else {
+        $.post('https://nocore-jobs/SetupTable', JSON.stringify({
+            table: tableid,
+            set: tableset,
+        }))
+    }
+});
+
+</script>
+
+</body>
+</html>

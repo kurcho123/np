@@ -1,0 +1,278 @@
+.program-tor-header {
+    background: #4039a0;
+    color: #ffffff;
+}
+
+.program-tor {
+    height: 100%;
+    width: 100%;
+    color: #000000;
+    background: #fdfdff;
+}
+
+.icon-tor {
+    background-position: -420px 0;
+}
+
+.icon-tor:hover {
+    background-position: -420px -60px;
+}
+
+.icon-tor:active {
+    background-position: -420px -120px;
+}
+
+.icon-tor-small {
+    background-position: -432px -193px;
+}
+
+.tor-menu-square {
+    margin: 20px 0 20px 0;
+    position: relative;
+    height: 100px;
+    color: #ffffff;
+    text-align: center;
+    background: linear-gradient(45deg, #303f9f, #7b1fa2) !important;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 10px;
+}
+
+.tor-menu-square:hover {
+    background: linear-gradient(45deg, #7b1fa2, #303f9f) !important;
+}
+
+.tor-menu-square:active {
+    background: linear-gradient(45deg, #681a8a, #273488) !important;
+}
+
+.tor-menu-square:nth-child(even) {
+    background: #011cb3;
+}
+
+.tor-menu-square p:nth-child(odd) {
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 40px;
+}
+
+.tor-menu-square p:nth-child(even) {
+    padding-top: 10px;
+    font-family: 'Muli', sans-serif;
+}
+
+#tor-employees td p {
+    text-transform: uppercase;
+    font-size: 14px;
+    display: inline-block;
+    color: #ffffff;
+    padding: 4px 8px 4px 8px;
+}
+
+.ba-promote {
+    background: #3ca832;
+}
+
+.ba-demote {
+    background: #a87132;
+}
+
+.ba-fire {
+    background: #cf2626;
+}
+
+#tor-page-salary,
+#tor-page-bank {
+    display: none;
+}
+
+#tor-salary input {
+    margin-top: 10px;
+    padding-left: 10px !important;
+    height: 30px !important;
+    width: 108px !important;
+    border: 1px solid black !important;
+    box-sizing: border-box;
+}
+
+#tor-salary input:focus {
+    box-shadow: none !important;
+}
+
+#tor-salary button {
+    float: right;
+}
+
+html,
+body {
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+
+/* Central content */
+
+#content {
+    padding-top: 170px;
+    padding-bottom: 40px;
+    width: 584px;
+    margin: 0 auto;
+}
+
+#logo {
+    background-image: url('https://raw.githubusercontent.com/mtran45/google-homepage/master/logo.png');
+    background-size: 272px auto;
+    background-repeat: no-repeat;
+    width: 280px;
+    height: 92px;
+    display: table-cell;
+    text-align: right;
+    vertical-align: bottom;
+}
+
+#country {
+    color: #4285F4;
+}
+
+#search-box {
+    margin-top: 30px;
+    width: 95%;
+    height: 40px;
+    border: 1px solid #747474;
+    padding: 0 5px;
+}
+
+input#search-box:focus {
+    border-color: #4D90FE;
+    outline: none;
+}
+
+#button-container {
+    margin-top: 30px;
+}
+
+input[type="submit"] {
+    background-color: #F2F2F2;
+    border: 1px solid #F2F2F2;
+    border-radius: 2px;
+    color: #757575;
+    font-size: 13px;
+    font-weight: bold;
+    min-width: 54px;
+    padding: 7px 16px;
+    margin: 0 2px;
+}
+
+input[type="submit"]:hover {
+    border-color: #C6C6C6;
+    background-color: #F8F8F8;
+    color: #222;
+}
+
+
+/* Header */
+
+ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#header>ul {
+    padding: 15px;
+    overflow: hidden;
+    float: right;
+    height: 30px;
+}
+
+#header>ul>li {
+    float: left;
+    margin: 0 10px;
+    font-size: 13px;
+}
+
+#user {
+    opacity: 0.55;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+#apps {
+    width: 30px;
+    height: 30px;
+    background-position: -132px -38px;
+    opacity: 0.55;
+}
+
+
+#apps:hover {
+    opacity: 1;
+}
+
+
+#user-menu {
+    display: flex;
+    align-items: center;
+    background-color: #C2185B;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+#user-initial {
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+}
+
+
+/* Footer */
+
+#footer {
+    background-color: #F2F2F2;
+    border-top: 1px solid #E4E4E4;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#footer ul {
+    height: 100%;
+}
+
+#footer li {
+    padding-left: 27px;
+    font-size: small;
+}
+
+#footer li a {
+    color: #666;
+}
+
+#footer-left {
+    float: left;
+}
+
+#footer-right {
+    float: right;
+    padding-right: 27px;
+}

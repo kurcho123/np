@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    
+<CVehicleModelInfoVarGlobal>    
+  <Wheels>
+    <Item/> <!-- VWT_SPORT -->
+    <Item/> <!-- VWT_MUSCLE -->
+    <Item/> <!-- VWT_LOWRIDER -->
+    <Item/> <!-- VWT_SUV -->
+    <Item/> <!-- VWT_OFFROAD -->
+    <Item/> <!-- VWT_TUNER -->  
+    <Item> <!-- VWT_BIKE -->
+	  <Item>
+        <wheelName>wheel_bkf_e1</wheelName>
+        <wheelVariation>wheel_bkf_e1w</wheelVariation>
+        <modShopLabel>Cross-Trax</modShopLabel>
+        <rimRadius value="0.3945"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_bkf_e2</wheelName>
+        <wheelVariation>wheel_bkf_e2w</wheelVariation>
+        <modShopLabel>Thixx</modShopLabel>
+        <rimRadius value="0.3664"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_bkr_e1</wheelName>
+        <wheelVariation>wheel_bkr_e1w</wheelVariation>
+        <modShopLabel>Cross-Trax</modShopLabel>
+        <rimRadius value="0.3945"/>
+        <rear value="true"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_bkr_e2</wheelName>
+        <wheelVariation>wheel_bkr_e2w</wheelVariation>
+        <modShopLabel>Thixx</modShopLabel>
+        <rimRadius value="0.3664"/>
+        <rear value="true"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel2_bkf_e1</wheelName>
+        <wheelVariation>wheel2_bkf_e1w</wheelVariation>
+        <modShopLabel>Cross-Trax</modShopLabel>
+        <rimRadius value="0.3945"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel2_bkf_e2</wheelName>
+        <wheelVariation>wheel2_bkf_e2w</wheelVariation>
+        <modShopLabel>Thixx</modShopLabel>
+        <rimRadius value="0.3664"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel2_bkr_e1</wheelName>
+        <wheelVariation>wheel2_bkr_e1w</wheelVariation>
+        <modShopLabel>Cross-Trax</modShopLabel>
+        <rimRadius value="0.3945"/>
+        <rear value="true"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel2_bkr_e2</wheelName>
+        <wheelVariation>wheel2_bkr_e2w</wheelVariation>
+        <modShopLabel>Thixx</modShopLabel>
+        <rimRadius value="0.3664"/>
+        <rear value="true"/>
+      </Item>
+	</Item>
+    <Item/> <!-- VWT_HIEND -->
+    <Item/> <!-- VWT_SUPERMOD1 -->
+    <Item/> <!-- VWT_SUPERMOD2 -->
+    <Item/>
+  </Wheels>
+</CVehicleModelInfoVarGlobal>

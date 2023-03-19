@@ -1,0 +1,12 @@
+body {
+    overflow: hidden;
+}
+
+#phone {
+    display: none;
+    position: absolute;
+    bottom: -70%;
+    right: 0vh;
+    padding-right: 30px;
+    overflow: hidden;
+}

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CVehicleModelInfoVarGlobal>    
+  <Wheels>
+    <Item>
+	  <Item>
+        <wheelName>wheel_elegy_011</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_11</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_012</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_12</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_013</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_13</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_014</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_14</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_015</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_15</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_016</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_16</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_017</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_17</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_018</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_18</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_019</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_19</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_020</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_20</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_021</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_21</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_022</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_22</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_023</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_23</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_024</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_24</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_025</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_25</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_026</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_26</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_027</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_27</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_028</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_28</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_029</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_29</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_030</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_30</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_031</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_31</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_032</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_32</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_033</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_33</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_034</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_34</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_035</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_35</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_036</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_36</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_037</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_37</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_038</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_38</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_039</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_39</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_040</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_40</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	  <Item>
+        <wheelName>wheel_elegy_041</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_41</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+ 	  <Item>
+        <wheelName>wheel_elegy_042</wheelName>
+        <wheelVariation />
+        <modShopLabel>ELG_WHEL_42</modShopLabel>
+        <rimRadius value="0.348500"/>
+        <rear value="false"/>
+      </Item>
+	</Item>
+    <Item/>
+    <Item/>
+    <Item/>
+  </Wheels>
+</CVehicleModelInfoVarGlobal>

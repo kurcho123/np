@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+
+html, body{
+	font-family: 'Poppins', sans-serif;
+	overflow: hidden;
+}
+
+@keyframes showright {
+	0% {
+		transform: translateX(100%);
+	}
+	40% {
+		transform: translateX(0%);
+	}
+	80%, 100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.showright {
+	animation: showright 1s ease forwards;
+}
+
+@keyframes hideright {
+	0% {
+		transform: translateX(0px);
+	}
+	40% {
+		transform: translateX(-5%);
+	}
+	80%, 100% {
+		opacity: 0;
+		pointer-events: none;
+	transform: translateX(100%);
+	}
+}
+
+.hideright {
+	animation: hideright 1s ease forwards;
+}
+
+@keyframes showleft {
+	0% {
+		transform: translateX(-100%);
+	}
+	40% {
+		transform: translateX(0%);
+	}
+	80%, 100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.showleft {
+	animation: showleft 1s ease forwards;
+}
+
+@keyframes hideleft {
+	0% {
+		transform: translateX(0px);
+	}
+	40% {
+		transform: translateX(5%);
+	}
+	80%, 100% {
+	opacity: 0;
+	pointer-events: none;
+	transform: translateX(-100%);
+	}
+}
+
+.hideleft {
+	animation: hideleft 1s ease forwards;
+}
+
+
+#ui {
+	position: absolute;
+	top: 50%;
+}
+
+#wrapper {
+	height: auto;
+	margin-bottom: 10px;
+	min-width: 275px;
+	margin: 0 0 8px 0;
+	border-radius: 10px;
+}
+
+#main {
+	margin: 12px 16px 12px 56px;
+	position: relative;
+}
+
+#main::before {
+	font-size: 24px;
+	top: calc(50% - 12px);
+	left: -40px;
+	line-height: 24px;
+	position: absolute;
+}
+
+#message {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+/* Dark Green */
+
+.darkgreen-icon::before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f05a";
+	color: #fff;
+	font-size: 28px;
+}
+
+.darkgreen {
+	background-color: rgb(33 86 26 / 70%);
+    box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
+	color: #fff;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 5px;
+}
+
+/* Dark Red */
+
+.darkred-icon::before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f05a";
+	color: #fff;
+	font-size: 28px;
+}
+
+.darkred {
+	background-color: rgb(86 30 26 / 70%);
+    box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
+	color: #fff;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 5px;
+}
+
+/* Purple */
+
+.purple-icon::before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f05a";
+	color: #fff;
+	font-size: 28px;
+}
+
+.purple {
+	background-color: rgb(49 26 86 / 70%);
+	box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
+	color: #fff;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 5px;
+}

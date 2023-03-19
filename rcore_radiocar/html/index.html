@@ -1,0 +1,170 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/ea904a573b.js" crossorigin="anonymous"></script>
+	<script src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflJJaNgk/www-widgetapi.js"></script>
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./scripts/vue.min.js" type="text/javascript"></script>
+</head>
+<body id = "body" style = "background: transparent;">
+<div id = "trash"></div>
+<div class = "radio_cont" v-if="visible">
+	<div id = "radio">
+		<div id = "useless">
+			<div id = "volume">{{volume}}% </div>
+			<i class="fas fa-headphones"></i>
+		</div>
+		<div id = "time">14:56</div>
+
+		<!-- Rewind controler -->
+		<div class = "playCustom" v-if="page === 'rewind'">
+			<div>
+				<p class = "status">{{locales.playing}}</p>
+				<p class = "nameSong">{{locales.nothing}}</p></br>
+				<p class = "timeSong">{{locales.timeSong}}</p>
+				<input type="range" id="timestamp_drag" step="1" name="timestamp" min="0" :value="(maxTimeStamp - timeSong)" :max="maxTimeStamp" style= "width: 50%;" @change="slideInputChanged">
+			</div>
+		</div>
+
+		<!-- Volume control -->
+		<div class = "playCustom" v-if="page === 'volume'">
+			<div class = "box full" id = "volumedown" v-on:click="changeVolume(true)">
+				<div class = "center-box">
+					<i class="fas fa-volume-down"></i>
+					<h3>Decrease volume</h3>
+				</div>
+			</div>
+			<div class = "box full" id = "volumeup" v-on:click="changeVolume(false)">
+				<div class = "center-box">
+					<i class="fas fa-volume-up test"></i>
+					<h3 class="test">Increase volume</h3>
+				</div>
+			</div>
+		</div>
+
+		<!-- input for custom music / pausing / stop music + info about music how long until end etc -->
+		<div class = "playCustom" v-if="page === 'custom'">
+			<p class = "status">{{locales.playing}}</p>
+			<p class = "nameSong">{{locales.nothing}}</p></br>
+			<p class = "timeSong">{{locales.timeSong}}</p>
+
+			<input type="text" id="url" name="url" placeholder="Your link to the music youtube / mp3"></br>
+			<div id = "playSong">
+				<i class="fas fa-pause" v-on:click="pauseMusic()"></i>
+				<i class="far fa-play-circle" v-on:click="playCustomMusic()"></i>
+				<i class="fas fa-stop" v-on:click="turnOffMusic()"></i>
+			</div>
+		</div>
+
+		<!-- hardcoded playlist from config.lua -->
+		<div id = "musicList" v-if="page === 'list'">
+			<div v-for="item, index in songs" class = "music">
+				<i class="far fa-play-circle" v-on:click="playMusic(item.url)"></i>
+				<p>{{ item.label }}</p>
+			</div>
+		</div>
+
+		<!-- User saved list of music -->
+		<div class = "playCustom" v-if="page === 'playlist'" style="overflow: overlay;">
+			<div class = "music">
+				<i class="glyphicon glyphicon-wrench" v-on:click="editMusic(null, null, true)" style="margin-bottom: 12px;"></i>
+				<br>
+				<p>Add new music</p>
+			</div>
+
+			<div v-for="item, index in userSongs" class = "music" v-if="item.active">
+				<i class="far fa-play-circle" v-on:click="playMusic(item.url)"></i>
+				<i class="glyphicon glyphicon-wrench" v-on:click="editMusic(item.url, item.label, null, index)"></i>
+				<p>{{ item.label }}</p>
+			</div>
+		</div>
+
+		<!-- que music list -->
+		<div class = "playCustom" id = "quemusic" v-if="page === 'quemusic'" style="overflow: overlay;">
+			<div class = "music">
+				<i class="glyphicon glyphicon-plus" v-on:click="changePage('add_menu_to_que')" style="margin-bottom: 12px;"></i>
+				<br>
+				<p>Add music to que</p>
+			</div>
+
+			<div class = "music">
+				<i class="fas fa-play" v-on:click="playQueList()" style="margin-bottom: 12px;"></i>
+				<br>
+				<p>Play the list</p>
+			</div>
+
+			<div class = "music">
+				<i class="fas fa-stop" v-on:click="stopQueList()" style="margin-bottom: 12px;"></i>
+				<br>
+				<p>Stop the list</p>
+			</div>
+
+			<div v-for="item, index in customPlayList" class = "music" v-if="!item.removed">
+				<i v-bind:class="{ 'far fa-trash-alt': !item.active, 'far fa-trash-alt active': item.active}"  v-on:click="removeFromPlayList(index, item)"></i>
+				<p style="padding-top: 15px;">{{ item.label }}</p>
+			</div>
+		</div>
+
+		<!-- Add music to que list -->
+		<div class = "editSong" v-if="page === 'add_menu_to_que'">
+			<p style="position: relative;bottom: -8px;font-size: 17px;">URL for the song</p>
+			<input type="text" id="UrlForQue" name="url" placeholder="Your link to the music youtube / mp3"></br>
+			<span class="glyphicon glyphicon-floppy-disk" v-on:click="addToQue()"></span>
+			<span class="glyphicon glyphicon-trash" v-on:click="changePage('quemusic')"></span>
+		</div>
+
+		<!-- Will edit/add music to his saved playlist -->
+		<div class = "editSong" v-if="page === 'edit'">
+			<p style="position: relative;bottom: -8px;font-size: 17px;">Name of the song</p>
+			<input type="text" id="AddName" name="name" placeholder="Name of your wonderfull music"></br>
+			<p style="position: relative;bottom: -8px;font-size: 17px;">URL for the song</p>
+			<input type="text" id="AddUrl" name="url" placeholder="Your link to the music youtube / mp3"></br>
+			<span class="glyphicon glyphicon-floppy-disk" v-on:click="editSong();"></span>
+			<span class="glyphicon glyphicon-trash" v-on:click="removeSong();"></span>
+		</div>
+
+		<!-- bottom menu if any new item added the width has to be adjusted  -->
+		<div id = "menu">
+			<div class = "box" id = "buttonOff" v-on:click="changePage('playlist')">
+				<i class="fas fa-save"></i>
+			</div>
+
+			<div class = "box" id = "search" v-on:click="changePage('custom')">
+				<i class="fas fa-search"></i>
+			</div>
+
+			<div class = "box" id = "rewind" v-on:click="changePage('rewind')">
+				<i class="far fa-clock"></i>
+			</div>
+
+			<div class = "box" id = "play" v-on:click="changePage('list')">
+				<i class="fas fa-broadcast-tower"></i>
+			</div>
+
+			<div class = "box" id = "change_volume" v-on:click="changePage('volume')">
+				<i class="fas fa-headphones-alt"></i>
+			</div>
+
+			<div class = "box" v-on:click="changePage('quemusic')">
+				<i class="fas fa-list-ol"></i>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="./scripts/config.js" type="text/javascript"></script>
+<script src="./scripts/listener.js" type="text/javascript"></script>
+<script src="./scripts/class.js" type="text/javascript"></script>
+<script src="./scripts/functions.js" type="text/javascript"></script>
+<script src="./scripts/SoundPlayer.js" type="text/javascript"></script>
+</html>

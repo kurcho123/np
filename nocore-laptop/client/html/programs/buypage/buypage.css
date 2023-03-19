@@ -1,0 +1,44 @@
+.program-buypage-header {
+    color: #ffffff;
+    background-color: red;
+}
+
+.program-buypage {
+    height: 100%;
+    width: 100%;
+    color: #131313;
+    background-image: url("../../assets/images/windows.png");
+}
+
+.icon-buypage {
+    background-position: -240px 0;
+}
+
+.icon-buypage:hover {
+    background-position: -240px -60px;
+}
+
+.icon-buypage:active {
+    background-position: -240px -120px;
+}
+
+.icon-buypage-small {
+    background-position: -251px -193px;
+}
+
+.program-buypage .card-title {
+    font-size: 20px;
+}
+
+.nonclickable {
+    pointer-events: none;
+    cursor: default;
+}
+
+#img {
+    width: 5vw;
+    height: 8vh;
+}
+
+
+

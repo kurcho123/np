@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDW</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="nui://game/ui/jquery.js" type="text/javascript"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <ul class="contextmenu">
+    </ul>
+    <div id="draggedItem">
+    </div>
+
+    <div class="gallery-image-div modal">
+        <img src="" class="gallery-image-enlarged modal-content">
+    </div>
+    
+
+    <div class="callsign-container" style="display: none">
+        <div class="callsign-inner-container" style="display: none">
+            <div class="callsign-title">Enter Callsign</div>
+            <input type="text" maxlength="5" class="callsign-input" placeholder="6969">
+            <div class="callsign-buttons">
+                <div class="callsign-cancel">Cancel</div>
+                <div class="callsign-submit">Submit</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dispatch-attached-units">
+        <div class="dispatch-attached-units-container">
+            <div class="dispatch-attached-units-title" data-id="0">Attached Units</div>
+            <div class="dispatch-attached-units-holder">
+            </div>
+        </div>
+    </div>
+
+    <div class="respond-calls" style="display:none;">
+        <div class="respond-calls-container" style="display:none;">
+            <div class="respond-calls-title">Call Response</div>
+            <div class="respond-calls-responses">
+            </div>
+            <textarea class="respond-calls-input" type="text" id="respondcalls" name="respondcalls" placeholder="What would you like to respond?"></textarea>
+        </div>
+    </div>
+
+    <div class="icidents-vehicle-search">
+        <div class="icidents-vehicle-search-container">
+            <div class="icidents-vehicle-search-title">Търси МПС</div>
+            <div class="icidents-vehicle-search-name-title">Регистрационен Номер</div>
+            <div style="width: 95%; margin: auto; border-bottom: 2px solid #2C537B;"><input class="icidents-vehicle-search-name-input"></div>
+            <div class="icidents-vehicle-search-holder">
+            </div>
+        </div>
+    </div>
+
+    <div class="icidents-person-search">
+        <div class="icidents-person-search-container">
+            <div class="icidents-person-search-title">Търси Цивилен</div>
+            <div class="icidents-person-search-name-title">Име</div>
+            <div style="width: 95%; margin: auto; border-bottom: 2px solid #2C537B;"><input class="icidents-person-search-name-input"></div>
+            <div class="icidents-person-search-holder">
+            </div>
+        </div>
+    </div>
+
+    <div class="incidents-charges-table" style="display: none;">
+        <div class="incidents-charges-table-container">
+            <div class="incidents-charges-title-container">
+                <div class="incidents-charges-title">Обвинения</div>
+                <div class="incidents-charges-title-description">Престъплението e общественоопасно деяние (действие или бездействие), което е извършено и е обявено от закона за наказуемо,  както и деяние нарушаващо моралните стандарти на обществото. При достатъчно доказателства, които да осигурят безпристрастна и реалистична перспектива за повдигане на обвинения, се взема решение за виновност.</div>
+            </div>
+            <div class="current-charges-container">
+                <div class="current-charges-inner-container">
+                    <div class="current-charges-title">Настоящи Обвинения</div>
+                </div>
+                <div id="current-charges-holder">
+                    <div class="current-charges-tag">test</div>
+                </div>
+            </div>
+            <div class="offenses-search-area">
+                <input type="text" class="offenses-search" placeholder="Търси обвинения" id="offenses-search" name="offenses-search">
+            </div>
+            <div class="offenses-main-container"></div>
+        </div>
+    </div>
+
+    <div class="container-load">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="loader"></div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item"><i class="fas fa-clipboard"></i> НПК</div>  
+                <div class="nav-item stafflogs-nav-item"><i class="fas fa-tools"></i> История</div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item active-nav" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>  
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <div class="dispatch-comms-container">
+                    <div style="display: flex;" class="reports-search-title-holder">
+                        <div class="reports-search-title dispatch-title-ofsomesort">Разговор</div>
+                        <div class="dispatch-comms-refresh">Refresh</div>
+                    </div>
+                    <div class="dispatch-items"> </div>
+                    <textarea class="dispatch-input" type="text" id="dispatchmsg" name="dispatchmsg" placeholder="Message #dispatch"></textarea>
+                </div>
+                <div class="reports-container" id="home-reports-container" style="display:none">
+                    <div style="display: flex;" class="reports-search-title-holder">
+                        <div class="reports-search-title"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                        <div class="reports-search-refresh">Refresh</div>
+                    </div>
+                    <div class="reports-items">
+                    </div>
+                </div>
+                <div class="warrants-container" id="home-warrants-container">
+                    <div style="display: flex;" class="reports-search-title-holder">
+                        <div class="reports-search-title"> <span class="fas fa-search"></span> За Издирване</div>
+                        <div class="warrants-refresh">Refresh</div>
+                    </div>
+                    <div class="warrants-items">
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <div class="quotes-container">
+                    <div class="quote-title"><span style="color: #caa95d;">Цитат</span> на деня</div>
+                    <div class="quote"><span class="quote-span">The DOJ is not the enemy, but is clearly not an ally</span></div>
+                </div>
+                <div class="bulletin-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="bulletin-title">Бюлетин</div>
+                        <div class="bulletin-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="bulletin-items-continer"> </div>
+                </div>
+            </div>
+            <div class="dispatch-container">
+                <div class="dispatch-title"><span class="fas fa-search"></span> Диспечер</div>
+                <div style="display: flex; align-items: center;">
+                    <div class="active-unit-title">Активни Колеги</div>
+                    <div class="active-unit-count" id="police-count">0</div>
+                    <div class="active-unit-count" id="ems-count">0</div>
+                    <div class="active-unit-count" id="doc-count">0</div>
+                    <div class="active-unit-count" id="pa-count">0</div>
+                </div>
+                <div class="active-unit-list">
+                </div>
+                <div class="calls-title">Сигнали</div>
+                <div class="active-calls-list">
+                    <div class="active-calls-item">
+                        <div class="active-call-inner-container">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item  profiles-nav-item active-nav" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div>
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>   
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="profile-container">
+                <div class="profile-title"> <span class="fas fa-search"></span> Профили</div>
+                <div class="profile-search-input"><input id="profile-search-input" type="text" placeholder="Търси..."></div>
+                <div class="profile-items">
+                </div>
+            </div>
+            <div class="manage-profile-container">
+                <div class="manage-profile-title">Менажиране на Профил</div>
+                <div style="display: flex;">
+                    <div class="manage-profile-editing-title">В момента редактирате ...</div>
+                    <div class="manage-profile-save">Save</div>
+                </div>
+                <div class="manage-profile-info-container">
+                    <img src="img/male.png" class="manage-profile-pic" onerror="this.src='img/not-found.jpg'">
+                    <div class="manage-profile-info-inner-container">
+                        <div class="manage-profile-citizenid">ЕГН</div>
+                        <div><span class="fas fa-address-card manage-cid-pic"></span><input type="text" readonly class="manage-profile-citizenid-input"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-name">Собствено Име</div>
+                        <div><span class="fas fa-user manage-cid-pic"></span><input type="text" readonly class="manage-profile-name-input manage-profile-name-input-1"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-name">Фамилия</div>
+                        <div><span class="fas fa-user manage-cid-pic"></span><input type="text" readonly class="manage-profile-name-input manage-profile-name-input-2"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-dob">Дата на раждане</div>
+                        <div><span class="fas fa-calendar-alt manage-cid-pic"></span><input type="text" readonly class="manage-profile-dob-input"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-job">Професия</div>
+                        <div><span class="fas fa-briefcase manage-cid-pic"></span><input type="text" readonly class="manage-profile-job-input"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-job">Кръвна група</div>
+                        <div><span class="fas fa-briefcase manage-cid-pic"></span><input type="text" readonly class="manage-profile-blood-input"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-job">Пръстов отпечатък</div>
+                        <div><span class="fas fa-briefcase manage-cid-pic"></span><input type="text" readonly class="manage-profile-fingerprint-input"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-job">Телефонен номер</div>
+                        <div><span class="fas fa-briefcase manage-cid-pic"></span><input type="text" readonly class="manage-profile-phone-input"></div>
+                        <div class="line"></div>
+                        <div class="manage-profile-url">Снимка</div>
+                        <div><span class="fas fa-images manage-cid-pic"></span><input type="text" class="manage-profile-url-input"></div>
+                        <div class="line" style="margin-bottom: 0px;"></div>
+                    </div>
+                </div>
+                <textarea class="manage-profile-info" placeholder="Въведи информация за лицето..." disabled></textarea>
+            </div>
+            <div class="manage-profile-right-container">
+                <div class="manage-profile-licenses-container">
+                    <div class="license-title">Лицензи <span class="licenses-amount"></span></div>
+                    <div class="licenses-holder"></div>
+                </div>
+                <div class="manage-profile-vehs-container">
+                    <div class="vehs-title">МПС-та</div>
+                    <div class="vehs-holder"></div>
+                </div>
+
+                <div class="manage-profile-incidents-container">
+                    <div class="profile-incidents-title">Досие</div>
+                    <div class="profile-incidents-holder"></div>
+                </div>
+
+                <div class="manage-profile-vehs-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="vehs-title">Имоти</div>
+                    </div>
+                    <div class="properties-holder"></div>
+                </div>
+                
+                <div class="manage-profile-tags-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="tags-title">Тагове</div>
+                        <div class="tags-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="tags-holder"></div>
+                </div>
+
+                <div class="manage-profile-weapons-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="weapons-title">Оръжия</div>
+                        <div class="weapons-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="weapons-holder"></div>
+                </div>
+
+                <div class="manage-profile-gallery-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gallery-title">Галерия</div>
+                        <div class="gallery-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="gallery-upload-input"><input id="gallery-upload-input" placeholder="Въведи линк...">
+                    </div>
+                    <div class="gallery-inner-container"></div>
+                </div>
+
+                <!-- Flakey, I need you to do the linked reports HTML/CSS for me. -->
+
+                <div class="manage-convictions-container">
+                    <div class="convictions-title">Провинения</div>
+                    <div class="convictions-holder"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="weaponsearch-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item " data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item active-nav" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="weaponsearch-container">
+                <div style="display: flex;" class="weaponsearch-search-title-holder">
+                    <div class="weaponsearch-title"> <span class="fas fa-search"></span> Оръжия\Гилзи</div>
+                </div>
+                <div class="weaponsearch-search-input"><input id="weaponsearch-search-input" placeholder="Сериен номер\Модел оръжие...">
+                </div>
+            </div>
+            <div class="weaponsearch-container-civilians">
+                <div class="weaponsearch-items-c">
+                </div>
+            </div>
+            <div class="weaponsearch-container-incidents">
+                <div class="weaponsearch-items-i">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="incidents-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item active-nav" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>   
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="incidents-container">
+                <div style="display: flex;" class="reports-search-title-holder">
+                    <div class="incidents-title"> <span class="fas fa-search"></span> Доклади</div>
+                    <div class="incidents-search-refresh">Refresh</div>
+                </div>
+                <div class="incidents-search-input"><input id="incidents-search-input" placeholder="Търси Доклад...">
+                </div>
+                <div class="incidents-items">
+                </div>
+            </div>
+            <div class="manage-incidents-container">
+                <div style="display: flex;" class="manage-incidents-title-holder">
+                    <div class="manage-incidents-title">Менажиране на Доклад</div>
+                    <div class="manage-incidents-create"> <span class="fas fa-plus" style="margin-top: 3.5px;"></span>
+                    </div>
+                    <!-- <div class="manage-incidents-save"><span class="fas fa-save" style="margin-top: 3.5px;"></span></div> -->
+                </div>
+                <div class="manage-incidents-editing-title" data-id=0>В момента създавате нов доклад</div>
+                <div class="manage-incidents-title-tag">Заглавие</div>
+                <div class="manage-incidents-title-input"><span class="fas fa-tags"></span> <input placeholder="Въведи заглавие..." class="manage-incidents-title-input" id="manage-incidents-title-input"></div>
+                <textarea class="manage-incidents-reports-content" placeholder="Вашият доклад трябва да бъде написан тук..."></textarea>
+                <div class="manage-incidents-tags-container">
+                    <div style="display: flex; align-items: center; width: 95%;">
+                        <div class="manage-incidents-tags-title">Тагове</div>
+                        <div class="manage-incidents-tags-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="manage-incidents-tags-holder">
+                    </div>
+                </div>
+                <div class="manage-incidents-weapons-container">
+                    <div style="display: flex; align-items: center; width: 95%;">
+                        <div class="manage-incidents-weapons-title">Оръжия\Гилзи</div>
+                        <div class="manage-incidents-weapons-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="manage-incidents-weapons-holder">
+                    </div>
+                </div>
+                <div class="manage-incidents-officers-container">
+                    <div style="display: flex; align-items: center; width: 95%;">
+                        <div class="manage-incidents-officers-title">Замесени Полицаи</div>
+                        <div class="manage-incidents-officers-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="manage-incidents-officers-holder">
+
+                    </div>
+                </div>
+                <div class="manage-incidents-civilians-container">
+                    <div style="display: flex; align-items: center; width: 95%;">
+                        <div class="manage-incidents-civilians-title">Замесени Цивилни</div>
+                        <div class="manage-incidents-civilians-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="manage-incidents-civilians-holder">
+
+                    </div>
+                </div>
+                <div class="manage-incidents-evidence-container">
+                    <div style="display: flex; align-items: center; width: 95%;">
+                        <div class="manage-incidents-evidence-title">Снимкови Доказателства</div>
+                        <div class="manage-incidents-evidence-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="incidents-upload-input"><input id="incidents-upload-input" placeholder="Въведи линк...">
+                    </div>
+                    <div class="manage-incidents-evidence-holder">
+                    </div>
+                </div>
+            </div>
+            <div class="associated-incidents-container">
+                <div class="associated-incidents-title">Замесени</div>
+                <div class="associated-incidents-tags-container">
+                    <div style="display: flex; align-items: center; width: 95%;">
+                        <div class="associated-incidents-tags-title">Обвиняеми Лица</div>
+                        <div class="associated-incidents-tags-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="associated-incidents-tags-holder">
+                    </div>
+                </div>
+                <div class="incidents-ghost-holder">
+                </div>
+                <div class="associated-vehicles-incidents-tags-container">
+                    <div style="display: flex; align-items: center; width: 95%;">
+                        <div class="associated-vehicles-incidents-tags-title">Замесени МПС-та</div>
+                        <div class="associated-vehicles-incidents-tags-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="associated-vehicles-incidents-tags-holder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reports-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item active-nav" data-page=".reports-page-container active-nav"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>   
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="reports-container">
+                <div style="display: flex;" class="reports-search-title-holder">
+                    <div class="reports-search-title"> <span class="fas fa-search"></span> Мед. Рапорти</div>
+                    <div class="reports-search-refresh">Refresh</div>
+                </div>
+                <div class="reports-search-input"><input id="reports-search-input" placeholder="Search Medical Report..."> </div>
+                <div class="reports-items">
+                </div>
+            </div>
+            <div class="manage-reports-container">
+                <div style="display: flex;" class="manage-reports-title-holder">
+                    <div class="manage-reports-title">Управлявай репорт</div>
+                    <div class="manage-reports-new">Нов</div>
+                    <div class="manage-reports-save">Запази</div>
+                </div>
+                <div class="manage-reports-editing-title" data-id=0>Ти правиш нов медицински репорт</div>
+                <div class="manage-reports-input-tag">Title</div>
+                <div class="manage-reports-input-title">
+                    <span class="fas fa-tags"></span>
+                    <input placeholder="Place title here..." id="reporttitle" class="manage-reports-input-title">
+                </div>
+
+                <div class="manage-reports-input-tag">Type</div>
+                <div class="manage-reports-input-type"><span class="fas fa-folder"></span> <input placeholder="Place report type here..." id="reporttype" class="manage-reports-input-type"></div>
+
+                <textarea class="manage-reports-reports-content" id="reportdetail" placeholder="Report detail goes here..."></textarea>
+            </div>
+
+            <div class="manage-reports-right-container">
+                <div class="manage-reports-tags-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="manage-reports-title-tag">Tags</div>
+                        <div class="manage-reports-tags-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="manage-reports-tags-holder"></div>
+                </div>
+                <div class="manage-reports-gallery-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gallery-title">Gallery</div>
+                        <div class="reports-gallery-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="reports-gallery-upload-input"><input id="reports-gallery-upload-input" placeholder="Въведи линк...">
+                    </div>
+                    <div class="reports-gallery-inner-container"></div>
+                </div>
+                <div class="reports-officers-tags-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="tags-title" id="reports-officers-involved-tag-title">Medics Involved</div>
+                        <div class="reports-officers-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="reports-officers-tags-holder"></div>
+                </div>
+                <div class="reports-civilians-tags-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="tags-title">Civilians Involved</div>
+                        <div class="reports-civilians-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="reports-civilians-tags-holder"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bolos-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item active-nav" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>   
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="bolos-container">
+
+                <div style="display: flex;" class="bolos-search-title-holder">
+                    <div class="bolos-search-title"> <span class="fas fa-search"></span> Издирвани МПС-та</div>
+                    <div class="bolos-search-refresh">Refresh</div>
+                </div>
+                <div class="bolos-search-input"><input id="bolos-search-input" placeholder="Търси издирвано МПС..."> </div>
+                <div class="bolos-items">
+                </div>
+            </div>
+            <div class="manage-bolos-container">
+                <div style="display: flex;" class="manage-bolos-title-holder">
+                    <div class="manage-bolos-title">Менажиране на Издирване</div>
+                    <div class="manage-bolos-new">New</div>
+                    <div class="manage-bolos-save">Save</div>
+                </div>
+                <div class="manage-bolos-editing-title" data-id=0>Създавате ново издирване на МПС</div>
+                <div class="manage-bolos-input-tag bolotitle-title">Заглавие</div>
+                <div class="manage-bolos-input-title">
+                    <span class="fas fa-tags"></span>
+                    <input placeholder="Въведи заглавие..." id="bolotitle" class="manage-bolos-input-title">
+                </div>
+
+                <div class="manage-bolos-input-tag boloplate-title">Рег. Номер</div>
+                <div class="manage-bolos-input-plate"><span class="fas fa-address-card"></span> <input placeholder="Въведи рег. номер..." id="boloplate" class="manage-bolos-input-plate"></div>
+
+                <div class="manage-bolos-input-tag boloowner-title">Собственик</div>
+                <div class="manage-bolos-input-owner"><span class="fas fa-bookmark"></span> <input placeholder="Въведи собственик на МПС-то..." id="boloowner" class="manage-bolos-input-owner"></div>
+
+                <div class="manage-bolos-input-tag boloindividual-title">Заподозрян</div>
+                <div class="manage-bolos-input-individual"><span class="fas fa-user"></span> <input placeholder="Въведи заподозрян..." id="boloindividual" class="manage-bolos-input-individual"></div>
+
+                <textarea class="manage-bolos-reports-content" id="bolodetail" placeholder="Въведи допълнителни детайли и информация..."></textarea>
+            </div>
+
+            <div class="manage-bolos-right-container">
+                <div class="manage-bolos-tags-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="manage-bolos-title-tag">Тагове</div>
+                        <div class="manage-bolos-tags-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="manage-bolos-tags-holder"></div>
+                </div>
+                <div class="manage-bolos-gallery-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gallery-title">Галерия</div>
+                        <div class="bolo-gallery-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="bolo-gallery-upload-input"><input id="bolo-gallery-upload-input" placeholder="Въведи линк...">
+                    </div>
+                    <div class="bolo-gallery-inner-container"></div>
+                </div>
+                <div class="manage-officers-tags-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="tags-title">Замесени Полицаи</div>
+                        <div class="officers-add-btn fas fa-plus"></div>
+                    </div>
+                    <div class="manage-officers-tags-holder"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="penalcode-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item active-nav" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>   
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="penalcode-embed">
+                <iframe class="roster-iframe" src="https://jspaint.app/#local:41b43f994c98c" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="1000px" width="1000px" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="dmv-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item active-nav" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>   
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="dmv-container">
+                <div class="dmv-search-title"> <span class="fas fa-search"></span> МПС-та</div>
+                <div class="dmv-search-input"><input id="dmv-search-input" placeholder="Търси МПС..."> </div>
+                <div class="dmv-items">
+
+                </div>
+            </div>
+            <div class="vehicle-information-container">
+                <div style="display: flex;" class="vehicle-information-title-holder" data-dbid=0>
+                    <div class="vehicle-information-title">Информация За МПС</div>
+                    <div class="vehicle-information-save">Запази</div>
+                </div>
+                <div class="vehicle-info-stuff">
+                    <img src="https://cdn.discordapp.com/attachments/850354594105262118/941478043988426802/2.0.png" class="vehicle-info-image" onerror="this.src='img/not-found.jpg'">
+                    <div class="vehicle-info-inner-container">
+                        <div class="vehicle-info-plate">Регистрационен номер</div>
+                        <div><span class="fas fa-address-card vehicle-info-icon"></span><input type="text" readonly class="vehicle-info-plate-input"></div>
+                        <div class="vehicle-info-line"></div>
+                        <div class="vehicle-info-owner">Собственик</div>
+                        <div><span class="fas fa-bookmark vehicle-info-icon"></span><input type="text" readonly class="vehicle-info-owner-input"></div>
+                        <div class="vehicle-info-line"></div>
+                        <div class="vehicle-info-class">Клас</div>
+                        <div><span class="fas fa-folder vehicle-info-icon"></span><input type="text" readonly class="vehicle-info-class-input"></div>
+                        <div class="vehicle-info-line"></div>
+                        <div class="vehicle-info-model">Марка/Модел</div>
+                        <div><span class="fas fa-car vehicle-info-icon"></span><input type="text" readonly class="vehicle-info-model-input"></div>
+                        <div class="vehicle-info-line"></div>
+                        <div class="vehicle-info-imageurl">Снимка</div>
+                        <div><span class="fas fa-images vehicle-info-icon"></span><input type="text" class="vehicle-info-imageurl-input"></div>
+                        <div class="vehicle-info-line" style="margin-bottom: 0px;"></div>
+                    </div>
+                </div>
+                <div class="vehicle-info-tags-container">
+                    <div class="vehicle-info-tags-title">Известна Информация</div>
+                    <div class="vehicle-info-tags-holder">
+                        <div class="vehicle-tags">
+                            <div class="vehicle-tag red-tag">Цвят</div>
+                            <div class="vehicle-tag red-tag">Конфискувана</div>
+                            <div class="vehicle-tag red-tag">Издирвана</div>
+                            <div class="vehicle-tag red-tag">Код 5</div>
+                            <div class="vehicle-tag red-tag">Открадната</div>
+                        </div>
+                    </div>
+                </div>
+                <textarea class="vehicle-info-content" placeholder="Въведи информация за МПС-то..."></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="cam-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item active-nav" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>   
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="cam-container">
+                <div class="cam-title"> <span class="fas fa-video"></span> Cams</div>
+                <div class="cam-items">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="globi-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item active-nav" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div> 
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+                <div class="globi-main-container-b" style="background-color: #4e4e4e;">
+                    <div class="offenses-main-container-b">
+                        <div class="globi-search-title"> <span class="fas fa-address-card"></span> ЗАКОНОДАТЕЛСТВО </div>
+                        <div class="globi-search-title"> Част 1 - Администрация </div>
+                        <div class="globi-item-p"><a class="globi-item-a">Определения</a></div>
+                        <div class="globi-item"><a class='globi-item-a'>Обществено място</a> – всяко място, което е достъпно за всички членове на обществото, където няма физическа или административна бариера за влизане. </div>
+                        <div class="globi-item">Примерите включват улици, паркове, банки, магазини и магазини, предназначени само за клиенти.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Частни помещения</a> – всяко място, което е обезопасено зад физически преграда, като врата, порта или по друг начин забранено за свободен достъп на членове на обществото.</div>
+                        <div class="globi-item">Примерите включват нощни клубове, защитени зони на работни места и зони само за персонал в помещенията. Имотът може да бъде частна собственост, но все пак може да има обществена зона в границата, като алея.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Полицейски служител</a> – всяко лице, което </div>
+                        <div class="globi-item">(а) е завършило успешно обучение, проведено от активен обучаващ представител на LSPD </div>
+                        <div class="globi-item">(б) поддържа активен статус на работа в полицейските сили на Лос Сантос</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Висш полицай</a> – всеки полицай от полицейските сили, който притежава текущо звание Сержант и по-високо. </div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Подсъдим</a> - лице или организация, които са призвани в съда в отговор на обвинение, че са извършили престъпление;</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Обвиняем</a> – лице или група лица съпричастни към престъпление, за което полицията има събрани достатъчно факти /физически доказателства,полицейски свидетелски показания, видеозаписи и др.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Свидетел</a> – лице, което е видяло как се случва събитие или може да предостави доказателства като разказ на очевидец, видеонаблюдение или запис от мобилен телефон.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Моторно превозно средство /МПС/</a> – всяко превозно средство, проектирано да се задвижва от мотор, независимо от конфигурацията на седалката или колелата или предвидената употреба на експлоатация по отношение на морска, сухопътна или авиационна среда.</div>
+                        <div class="globi-item"><a class='globi-item-a'>Път (или „свързана с пътя зона“)</a> – зона, която е отворена или използвана от обществеността и е разработена за, или има като едно от основните си приложения за, шофиране или каране на моторни превозни средства.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Упълномощен арест</a> - поправителен център или полицейски участък със съоръжения за задържане на затворници.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Огнестрелно оръжие</a> - пистолет или друго оръжие, което е (или по всяко време е било) способно да изстрелва снаряд с помощта на експлозия.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>Хладно оръжие:</a> Хладно оръжие е оръжието, предназначено за поразяване на цел (напр. човек, животно, мишена) което се задвижва единствено от мускулната сила на човека. </div>
+                        <div class="globi-search-title"> Част 2 - Правомощия </div>
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия за влизане</a></div>
+
+                        <div class="globi-item"><a class='globi-item-a'>1. Право на влизане в помещения при спешни случаи</a> – полицейски служител може да влезе във всяко помещение, ако полицейският служител на разумни основания смята, че лице в тези помещения е претърпяло значителна физическа нараняване или съществува непосредствена опасност от сериозно нараняване на лице в тези помещения и че е необходимо незабавно влизане, за да се предотврати по-нататъшна опасност.</div>
+                        <div class="globi-item"><a class='globi-item-a'>2. Право на влизане в помещения, за да арестува лице</a> – полицейски служител може да влезе в помещение без заповед, ако полицейският служител обосновано подозира, че в тези помещения се намира лице, което наскоро е извършило, в момента извърша престъпление или има намерение да извърши престъпление.</div>
+
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия за идентификация</a></div>
+
+                        <div class="globi-item"><a class='globi-item-a'> 3. Правомощия за изискване на идентификация от лице</a> – полицаят може да изиска от лице да предостави подходяща идентификация по всяко време и без основателна причина.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>4. Правомощия за изискване на идентификация на водач на МПС</a> – полицейски служител може да изиска от водач на моторно превозно средство да предостави свидетелство за управление на същото.
+                        </div>
+
+                        <div class="globi-item"><a class='globi-item-a'>5. Правомощия за изискване на идентификация на пътник в МПС</a> – полицейски служител може да изиска от пътник в МПС да удостовери своята самоличност по всяко време и без основателна причина.</div>
+                        <div class="globi-item"><a class='globi-item-a'>6. Право за изискване премахване на лицево покритие</a> – полицейски служител може да изиска от лице да свали маска, каска, шапка или друг предмет, който пречи на пълния изглед на лицето, за да може полицаят да направи справки за тяхната идентичност. </div>
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия, свързани с претърсване и изземване на вещи</a></div>
+
+                        <div class="globi-item"><a class='globi-item-a'>7. Право на претърсване на лице и/или превозно средство без заповед</a> – полицейски служител може да извърши претърсване на лице и/или превозно средство, ако полицейският служител на разумни основания подозира, че лицето и/или превозното средство са участвали в извършване на престъпление.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>8. Претърсване на лице, облечено в тактическо/бойно облекло</a> – Полицейски служител може да претърси лице, ако се види, че лицето носи облекло и/или оборудване на обществени места, като например:</div>
+                        <div class="globi-item">Видими бронежилетки, носени върху дрехите на лицето</div>
+                        <div class="globi-item">Тактически/бойни каски</div>
+                        <div class="globi-item">Тактически жилетки</div>
+                        <div class="globi-item">Кобур</div>
+                        <div class="globi-item">Други</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>9. Право за претърсване на лице при арестуване</a> – полицейски служител може да претърсва лице само след неговото арестуване.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>10. Право за претърсване на задържано лице</a> – полицейски служител не може да претърси задържано лице освен при негово изрично съгласие.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>11. Право за претърсване без арест или задържане</a> - Всеки гражданин може да бъде претърсен от полицай след неговото изрично съгласие.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>12. Право на изземване на предмети след претърсване</a> – полицейски служител може след претърсване на лицето или превозно средство да изземе всякакви намерени предмети забранение от закона или за които подозира, че могат да бъдат изпозлвани или са използвани за престъпение. </div>
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия, свързани с превозните средства</a></div>
+
+                        <div class="globi-item"><a class='globi-item-a'>13. Правомощие за спиране на превозни средства</a> – Полицейски служител по негово усмотрение може във всеки един момент да спре превозно средство за проверка.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>14. Право за спиране и качване на кораб</a> – полицейски служител може да се качи на плавателен съд и да извърши аналогични действия или описани в раздел 1 и раздел 2.</div>
+
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия, свързани с местопрестъплението</a></div>
+
+                        <div class="globi-item"><a class='globi-item-a'>15. Правомощия при установено местопрестъпление на обществено място или частна собственост</a> – полицейски служител може да извърши всички необходими действия по обезопасяване на местопрестъпление, включително оброботка на терена и събиране на доказателства, разпити и т.н. за толкова дълго време, колко е необходимо.</div>
+
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия, свързани с разследвания</a></div>
+
+                        <div class="globi-item"><a class='globi-item-a'>16. Правомощия да дава разумни указания</a> – полицейски служител може да издаде „разумно указание“ на лице или група лица на обществено място да преустанови поведението си, ако поведението е: </div>
+                            <div class="globi-item">предизвикване на страх на членовете на обществото;</div>
+                            <div class="globi-item">свързано с поведение при покупка/продажба на наркотици;</div>
+                            <div class="globi-item">възпрепятстване на движението;</div>
+                            <div class="globi-item">пречи на местопрестъплението на полицията.</div>
+                            <div class="globi-item">и други. </div>
+                        <div class="globi-item"><a class='globi-item-a'>17. Правомощия да задържа лице за разследване</a> – полицейския служител може да задържи лице за целите на разследване ако лицето е свързано с престъпление, ако полицейският служител подозира, че лицето може да предостави информация, свързана с това престъпление. Задържаното лице трябва да бъде незабавно информирано за причината за задържането му. </div>
+
+                        <div class="globi-item"><a class='globi-item-a'>18. Право за задържане на лице с цел тест за остатъци от огнестрелно оръжие /GSR тест/</a> – полицейски служител може да задържи лице, за което обосновано подозира, че е участвало в престъпление, с цел да го подложи на полева съдебномедицинска процедура, включваща тестване на остатъци от барутни частици (известен още като „GSR тест ”).</div>
+
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия свързани с глоби</a></div> 
+
+                        <div class="globi-item"><a class='globi-item-a'>19. Правомощие за издаване на глоби</a> – полицейския служител налага глоби съобразно правилата на работа като задължително преди това лицето трябва да бъде уведомено, че му се  налага такава.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>20. Правомощие да обвини лице или да отнеме съответния лиценз</a> – полицейския служител може да обвини лице, ако има факти и доказателства, че е извършено или е участвало в престъпление или нарушение. Полицейският служител трябва да има доказателства, че лицето е участвало в извършването на престъплението или нарушението.</div> 
+
+                        <div class="globi-item-p"><a class='globi-item-a'>Правомощия за използването на сила</a></div> 
+
+                        <div class="globi-item"><a class='globi-item-a'>21. Правомощие за използване на разумна сила</a> – полицаите могат да използват сила, доколкото е разумно с оглед на ситуацията.</div> 
+                        
+                        <div class="globi-search-title">Част 3 – Заповеди и обиски</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>22. Заповеди за арест и обиск</a> – полицейски служител може да поиска заповед за арест и/или обиск на лице, имот /движим или недвижим/, ако полицейският служител има доказателства, че лицето и/или имота са свързани с престъпление. Заповеди за арест или обиск се издават от Главния секретар при неотложност, или от съдия/градски поркурор след събрани доказателства по разследване и подадена молба от Главния секретар или Криминална полиция до съответната институция.
+                        Заповедта за арест/обиск трябва да бъде връчена непосредствено преди извършване на акцията, в случаите на неотложност при отсъствие на собственика, негово задължение е, да поиска тази заповед от полицията, придружена от протокол за обиск.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>23. Разрешаване на тайна заповед за претърсване</a> – След разследване на Криминална полиция и предоставени безспорни доказателства Главният секретар може да даде разрешение за специализирана тайна акция, включваща обиск на движимо и/или недвижимо имущество и арести. В този случай връчването на заповедта може да бъде извършено на по-късен етап. След обиск на имота, собственикът трябва да получи протокол за иззетото имущество, като на по-късен етап да бъде осведомен дали и какво ще бъде задържано като доказателство по случая.</div>
+
+                        <div class="globi-search-title">Част 4 – Доказателства и свидетелски показания</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>24. Придобиване на доказателства</a> – Всички доказателства трябва да имат отношение към случая и трябва да са получени справедливо, законосъобразно и да са надеждни по своя характер. Доказателства без установен или невъзможен за доказване произход няма как да бъдат използвани.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>25. Правомощия за вземане на отпечатъци и криминалистични проби</a> – полицай може да вземе криминалистична проба и/или отпечатъци граждани с цел идентифициране или за събиране на доказателства. Вземането на пробата може да бъде получено със съгласието на лицето или чрез използване на разумна сила, ако не съществува съгласие. В случаите, когато трябва да се вземе ДНК проба, тя трябва да се взема само от квалифициран медицински специалист.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>26. Изискване за съхраняване на криминалистични проби и доказателства</a> – полицай, който разполага с криминалистична проба или друго доказателство, трябва да се увери, че е съхранена сигурно по надлежния ред и правила. </div>
+
+                        <div class="globi-item"><a class='globi-item-a'>27. Взимане на свидетелски показания</a> – При наличието на свидетели на престъпление или нарушение, полицай може да разговаря с тях за събиране на информация по случая на място или да ги помоли да го придружат до РПУ в качеството им на очевидци. За да бъде използвана предоставената информация като официално доказателство, тя трябва да бъде под формата на писмени свидетелски показания. Всяко лице има право да откаже да даде писмени показания и няма право да бъде принуждавано да предоставя такива. </div>
+                        <div class="globi-search-title">Част 5 – Правила за споделяне на информация и правила при задържане, арест и процесване </div>
+
+                        <div class="globi-item"><a class='globi-item-a'>28. Разумна продължителност на задържането</a> – полицаят не трябва да държи арестувано или задържано лице по-дълго, отколкото е разумно необходимо.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>29. Времената, които се пренебрегват при определяне на разумна продължителност на задържането</a> – ситуациите по-долу не са от значение при определянето на това колко дълго трябва да се прилага „разумната продължителност на задържането“:</div>
+                        <div class="globi-item">Време, прекарано в чакане на юридически съветници да пристигнат в полицейския участък или в района на задържане;</div>
+                        <div class="globi-item">Време за разпит;</div>
+                        <div class="globi-item">Време, отделено за криминалистични процедури като пръстови отпечатъци, тестване на остатъци от огнестрелно оръжие, фотографиране или събиране на ДНК;</div>
+                        <div class="globi-item">Време, прекарано в писане на обвинение за обвиняем;</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>30. Споделяне на информация с частни фирми</a> – Полицията може да разкрие криминалната история на дадено лице на упълномощен представител на частен или държавен бизнес в случаите, когато на това лице предстои назначаване на работа или при текущи вътрешни проверки за криминална активност на служителите на фирмата.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>31. Споделяне на информация с юристи</a> – полицейските служители са длъжни да предоставят информация за криминалната история на дадено лице на представляващите го адвокати.</div>
+                        <div class="globi-item"><a class='globi-item-a'>32. Право на налагане на санкции за превозни средства</a> – при налични на доказателства, че превозно средство и/или негов собственик са замесени в престъпление, всеки полицай с ранг Младши Полицай или по-висок може да наложи санкция на превозното средство - Депо или задържане в Полицейски паркинг. Полицаят, който наложи санкциите на превозното средство, трябва незабавно да опише детайлите по установения начин на работа и полицейски протокол.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>33. Правомощие за промяна на санкции на превозни средства</a> – полицай, който притежава звание Сержант и по-високо, може да промени наложена санкция на превозно средство.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>34. Мерки за неотклонение и правила при прилагането им</a></div>
+
+                        <div class="globi-item">- подписка - условията по тази мярка са, лицето, на което е наложена, трябва да идва в РПУ лично всеки ден в уговорен часови диапазон за подпис, удостоверяващ, че не се укрива. Преди лицето да положи подписа, полицаят, пред който се подписва, е длъжен да се увери чрез проверка в полицейската система, че лицето не е замесено в криминална дейност от датата на налагане на мярката за неотклонение. В противен случай тя става невалидна и в сила влизат всички обвинения и съответните наказания по тях. Тази мярка се налага за максимален срок от една седмица. Като през това време лицето има ангажимента да се свърже с адвокат, който ще го представлява в съда и да предостави документ за задействано съдебно производство.</div> 
+                        <div class="globi-item">- парична гаранция - при тази мярка трябва да бъде заплатена 50 % от сумата на всички глоби, които трябва да бъдат нанесени на обвиняемия за престъпленията, по които е обвинен. Сумата се заплаща, преди обвиняемият да напусне ареста и е трябва да бъде платена от трето лице - гарант. В случай, че обвиняемият наруши наложената му гаранция, извършвайки престъпление, тя отпада, а платената сума не се възстановява или приспада. В сила влизат всички обвинения и съотвените наказания по тях. Тази мярка се налага за максимален срок от една седмица. Като през това време лицето има ангажимента да се свърже с адвокат, който ще го представлява в съда и да предостави документ за задействано съдебно производство.</div> 
+
+                        <div class="globi-item">- задържане под стража - това е мярка, при която лицето, на което е наложена, се изпраща в затвор за срок максимум от една седмица (99999), през което време полицията е длъжна да организира съдебен процес, за разглеждане на случая.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>35. Правомощие за налагане или вдигане на мерки за неотклонение</a> – мерките за неотклонение се налагат или вдигат само след изрично разрешение от Главен секретар или упълномощено от него лице.</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>36. Арест на лице без заповед</a> – полицейският служител може без заповед да арестува лице, ако полицаят има доказателства, че лицето извършва, е извършило или има намерение да извърши престъпление.</div> 
+                        <div class="globi-search-title">Част 6 – Поведение, дисциплинарни и правни въпроси</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>37. Вътрешни разследвания на полицейски служители</a> – Само служители, част от отдел "Вътрешна сигурност", могат да разследват друг полицейски служител, когато са налице данни за извършено нарушение. Резултатът от разследването трябва да бъде документиран и след заършването му, да бъде представен на Главния секретар.</div> 
+
+                        <div class="globi-item"><a class='globi-item-a'>38. Предоставяне на информация за нарушения, извършени от полицаи по време на служба</a> – всяко физическо или юридическо лице има право да подаде жалба срещу полицейски служител. Жалбите трябва да бъдат в писмен вид и трябва да бъдат входирани по надлежен ред от служител на отдел "Вътрешна сигурност". Жалбоподателят има право на информация за резултата от разследването.</div>
+
+                        <div class="globi-search-title">Част 7 - Запори</div>
+
+                        <div class="globi-item"><a class='globi-item-a'>39. Молба за изземване на имущество</a> – полицейски служител, притежаващ звание Инспектор или по-висок ранг или назначение в отдела за тежки престъпления, може да подаде молба за изземане на имущество (отговарящо на един или повече от критериите, да бъде иззети.
+                        Прокурора може да разреши всеки частен актив или доказателство, съхранявано на сигурно съхранение, да бъде конфискуван, ако отговаря на критериите или ако активът трябва да бъде конфискуван поради дълг от значителна сума за нарушения, които не са неплатени от собственика на имота.</div> 
+
+                        <div class="globi-item"><a class='globi-item-a'>40. Заявление от акредитиран адвокат за изземване на активи</a> – акредитиран адвокат може да подаде молба до съдия, за активи, които да бъдат иззети и възстановени обратно на жертва на престъпление като първоначален собственик на актива.</div>  
+                        <div class="globi-item"><a class='globi-item-a'>41. Запориране на имущество</a> – запорирането на имущество е в правомощията само на полицай с ранг Сержант или по-висок. Условията по запора се определят индивидуално според конкретния случай.</div> 
+
+                        <div class="globi-item"><a class='globi-item-a'>42. Изпълнение на заповеди за конфискация на активи</a> – след предоставяне на необходимите документи от съдията, постановил запора на имуществото, полицията се ангажира с конфискуването и обработването му.</div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="npk-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item active-nav" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div> 
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="npk-main-container-b" style="background-color: #4e4e4e;">
+                <div class="offenses-main-container-b">
+                    <div class="npk-search-title"> <span class="fas fa-address-card"></span>НАКАЗАТЕЛЕН КОДЕКС </div>
+
+                        <div class="npk-search-title"> Административни нарушения</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 1.</a>  Ако лице не представи или няма лични документи в себе си след като те биват поискани от органи на реда при проверка подлежи на глоба в размер от 4000$</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 2.</a> Лице което лъжесвидетелства подлежи на глоба в размер до 2500$ и задържане под стража от 3 до 9 месеца </div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 3.</a> Ако лице извърши или направи опит за документна измама подлежи на глоба до 3000$ и задържане под стража до 20 месеца</div>
+                        <div class="npk-item">    Ал. 1. Ако лице фалшифицира документи или попълни такива с невярно съдържание подлежи на глоба в размер до 3 000$ и задържане под стража до 20 месеца</div>
+                        <div class="npk-item">    Ал. 2. Ако лице предостави личните си документи на друго лице с цел измама или злоупотреба подлежи на глоба в размер от 2000$ и задържане под стража на 20 месеца</div>
+                        <div class="npk-item">    Ал. 3. Ако лице злоупотреби с чужди лични документи или притежава такива без основателна причина подлежи на глоба в размер на 4000$ и задържане под стража до 20 месеца</div>
+                        <div class="npk-item">    Ал. 4 Ако лице нанесе големи имуществени или финансови вреди (над 10 000$) посредством измама с документи подлежи на задържане под стража до насрочването и провеждането на съдебен процес. </div>
+                        <div class="npk-search-title"> Дребно хулиганство</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 4.</a>  Ако лице злоупотребява с телефоните за спешни сигнали подлежи на глоба от 1500$ и задържане в РПУ за период до 24 часа</div>
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 5.</a> Ако лице се държи непристойно на публични места подлежи на задържане в РПУ за период от 24 часа и глоба в размер от 200 до 700$</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 6.</a> Ако лице руши общинско или частно имущество подлежи на задържане в РПУ за период от 48 часа и глоба в размер от 500 до 1500$.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 7.</a> Лице, което се държи арогантно и унизително спрямо друго лице подлежи на глоба в размер от 300$.</div>
+                        <div class="npk-item">    Ал. 1. Лице, което се държи арогантно и унизително спрямо органи на реда подлежи на задържане в РПУ за период от 24 часа и глоба в размер от 1400$.</div>
+                        <div class="npk-item">    Ал. 2. Лице, което се държи арогантно и унизително системно спрямо органи на реда или други лица подлежи на глоба в размер от 2000$</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 8.</a> Ако лице окаже съпротива при арест подлежи на глоба в размер до 1500$ и задържане под стража от 3 до 9 месеца.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 9.</a> Ако лице бъде заловено да разфасова МПС, за което няма документи, подлежи на глоба в размер до 1000$ и задържане под стража до 10 месеца</div>
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 10.</a>  Ако лице открадне или управлява откраднат автомобил подлежи на задържане под стража за период 10 месеца и глоба от 1000 $</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 11.</a>  Ако лице не се подчини на полицейско разпореждане и/или бяга от полицията подлежи на задържане под стража за 10 месеца и глоба от 1000 $ </div>
+                        <div class="npk-search-title"> Едро хулиганство</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 12.</a> Лице, което нападне физически друго лице подлежи на задържане в РПУ за период от 48 часа и глоба в размер от 1000$</div>
+                        <div class="npk-item">    Ал.1. Лице, което нападне физически друго лице и причини лека телесна повреда подлежи на задържане под стража за период 2 месеца и глоба в размер на 2000$</div>
+                        <div class="npk-item">    Ал.2. Лице, което нападне физически друго лице и нанесе тежка телесна повреда подлежи на задържане под стража за период от 6 месеца и глоба в размер на 3000$</div>
+                        <div class="npk-item">    Ал.3 Лице, което нападне физически служебно лице подлежи на задържане под стража за период от 3 до 18 месеца и глоба в размер от 3000$</div>
+                        <div class="npk-search-title"> Нападение</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 13.</a> Лице, което нападне друго лице с хладно оръжие, инструмент или друг предмет подлежи на задържане под стража за период от 3 до 18 месеца и глоба в размер до 8000$</div>
+                        <div class="npk-item">    Ал.1 . Лице, което нападне друго лице с хладно оръжие, инструмент или друг предмет и причини нетрайни увреждания подлежи на задържане под стража от 3 до 7 месеца и глоба в размер до 3500$</div>
+                        <div class="npk-item">    Ал.2. Лице, което нападне друго лице с хладно оръжие, инструмент или друг предмет и причини трайни увреждания подлежи на задържане под стража от 8 до 18 месеца и глоба в размер до 8000$.</div>
+                        <div class="npk-item">    Ал.3. Лице, което нападне служебно лице с хладно оръжие, инструмент или друг предмет подлежи на задържане под стража за период от 18 месеца и глоба в размер на 8000$.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 14.</a> Лице, което нападне друго лице с огнестрелно оръжие клас 1 подлежи на задържане под стража от 6 до 36 месеца и глоба в размер до 12000$. </div>
+                        <div class="npk-item">    Ал. 1.  Лице, което нападне друго лице с огнестрелно оръжие клас 1 и нанесе нетрайни увреждания подлежи на задържане под стража от 6 до 18 месеца и глоба в размер до 6000$</div>
+                        <div class="npk-item">    Ал. 2. Лице което нападне други лице с огнестрелно оръжие клас 1 и нанесе трайни увреждания подлежи на задържане под стража от 18 до 36 месеца и глоба до 12000$. </div>
+                        <div class="npk-item">    Ал. 3.  Лице, което нападне служебно лице с огнестрелно оръжие клас 1 подлежи на задържане под стража за период от 18 месеца и глоба в размер на 12000$</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 15.</a> Лице, което нападне друго лице с огнестрелно оръжие клас 2 подлежи на задържане под стража за период от 6 до 36 месеца и глоба в размер до 17000$</div>
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 16.</a> Лице, което използва превозно средство като нападателно оръжие подлежи на задържане под стража от 18 до 36 месеца и глоба до 12000$. </div>
+                        <div class="npk-item">    Ал. 1.  Лице, което използва превозно средство като нападателно оръжие и нанесе нетрайни увреждания подлежи на задържане под стража от 6 до 18 месеца и глоба в размер до 6000$</div>
+                        <div class="npk-item">    Ал. 2. Лице, което използва превозно средство като нападателно оръжие и нанесе трайни увреждания подлежи на задържане под стража от 18 до 36 месеца и глоба до 12000$. </div>
+                        <div class="npk-item">    Ал. 3.  Лице, което използва превозно средство като нападателно оръжие срещу служебно лице подлежи на задържане под стража за период от 18 месеца и глоба в размер на 12000$</div>
+                        <div class="npk-search-title"> Обири и тежки криминални прояви спрямо личността и спрямо обекти</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 17.</a> Лице, което влезе с взлом в чужда собственост и нанесе имуществени вреди или отнеме неправомерно вещи непринадлежащи му подлежи на задържане под стража за период от 3 до 12 месеца и глоба в размер до 2500$. </div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 18.</a> Лице, което присвои неправомерно чужди вещи подлежи на задържане под стража от 3 до 12 месеца и глоба в размер до 2000$ в зависимост от тежестта на престъплението.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 19</a> Лице, което бъде заловено в извършването на грабеж на територията на обект в град Los Santos, подлежи на финансова глоба в размер до 20000$ и задържане под стража за период от 6 до 72 месеца.</div> 
+                        <div class="npk-item">    Ал. 1 Ако лицето извърши невъоръжен грабеж на стоки  подлежи на финансова глоба в размер до 2000$ и задържане под стража от 6 до 16 месеца.</div> 
+                        <div class="npk-item">    Ал. 2 Ако лицето извърши невъоръжен грабеж на валута подлежи на финансова глоба в размер до 2500$ и задържане под стража от 12 До 24 месеца</div> 
+                        <div class="npk-item">    Ал. 3 Ако лицето извърши въоръжен грабеж на стоки  подлежи на финансова глоба в размер до 3000 $ и задържане под стража от 6 до 16 месеца.</div> 
+                        <div class="npk-item">    Ал. 4 Ако лицето извърши въоръжен грабеж на валута подлежи на финансова глоба в размер до 3500 $ и задържане под стража от 12 До 24 месеца</div> 
+                        <div class="npk-item">    Ал. 5 Ако лицето извърши въоръжен грабеж на валута от клон на финансова институция подлежи на финансова глоба в размер до 7000 $ и задържане под стража от 24 до 48 месеца</div> 
+                        <div class="npk-item">    Ал. 6 Ако лицето извърши въоръжен грабеж на валута от регионална централа на финансова институция подлежи на финансова глоба в размер до 20000$ и задържане под стража от 48 до 72 месеца</div> 
+                        <div class="npk-item">    Ал. 7 Ако лицето извърши въоръжен грабеж на валута, стоки или ценности в голям размер /нас стойност над 2000$/ от частен обект подлежи на финансова глоба в размер до 6000$ и задържане под стража от 24 до 48 месеца</div> 
+                        <div class="npk-item">    Ал. 8 Ако лицето извърши въоръжен грабеж стоки, валута или ценности от търговски обект подлежи на финансова глоба в размер до 10000 $ и задържане под стража от 24 до 48 месеца</div> 
+                    
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 20.</a> Ако лице влезе нерегламентирано в строгоохранявана зона /РПУ, Затвор, Военна база, BOBCAT и др./ подлежи на задържане под стража за период от 10 до 20 месеца и глоба в размер от 5000$</div>
+                        <div class="npk-item">    Ал.1 Ако лице умишлено помага на друго лице да влезе/излезе нерегламентирано  в строгоохранявана зона /РПУ, Затвор, Военна база и др./ подлежи на задържане под стража за период от 10 месеца и глоба в размер 3000$ </div>
+                        <div class="npk-item">    Ал 2. Лице, което управлява, открадне или се вози като съучастник в специализирано превозно средство (Инкасо автомобил, военна техника, МПС-а със специален режим на движение и др.) подлежи на задържане под стража за срок до 15 месеца и глоба в размер на 3000$</div>
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 21.</a> Отвличане и задържане на лице против волята му и застрашаване на живота му се наказва с затвор до 40 месеца и глоба в размер до 10 000$ </div>
+                        <div class="npk-item">    Ал. 1. Отвличане и задържане на цивилно лице против волята му и застрашаване на живота му се наказва с затвор до 20 месеца и глоба в размер до 5 000$ </div>
+                        <div class="npk-item">    Ал. 2. Отвличане и задържане на служебно лице против волята му и застрашаване на живота му се наказва с затвор до 40 месеца и глоба в размер до 10 000$</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 22.</a> Терористични действия, които застрашават сигурността и суверенитета на държавни институции на щата Лост Сантос се наказват с затвор от 100 месеца и глоба в размер на 30 000$ </div>
+
+                        <div class="npk-search-title"> Нелегални събития</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 23.</a> Ако лице участва или организира мероприятие без нужното му разрешение подлежи на глоба в размер до 15000$.</div>
+                        <div class="npk-item">    Ал.1 Ако лице вземе участие в нелегално организирано мероприятие подлежи на глоба в размер до 7000 и задържане под стража от 6 до 18 месеца</div>
+                        <div class="npk-item">    Ал.2 Ако лице организира нелегално организирано мероприятие подлежи на глоба в размер до 15000 и задържане под стража от 12 до 18 месеца</div>
+                        <div class="npk-search-title"> Незаконно оръжие</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 24.</a> Ако лице притежава огнестрелно оръжие без необходимия лиценз или разрешително подлежи на глоба и задържане под стража</div>
+                        <div class="npk-item">    Ал 1. Ако лице притежава огнестрелно оръжие Клас 1 без необходимия лиценз или разрешително подлежи на глоба до 3000$ и задържане под стража до 30 месеца</div>
+                        <div class="npk-item">    Ал 2. Ако лице притежава огнестрелно оръжие Клас 2 без необходимия лиценз или разрешително подлежи на глоба до 7000$ и задържане под стража до 30 месеца</div>
+                        <div class="npk-item">    Ал 3. Ако лице притежава огнестрелно оръжие Клас "Police" без необходимия лиценз или разрешително подлежи на глоба до 20 000$, задържане под стража до 60 месеца и обиск на цялото му движимо и недвижимо имущество. </div>
+
+                        <div class="npk-search-title"> Нелегални субстанции</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 25.</a> Ако лице пренася или укрива нелегални субстанции в своето или е водач на чуждо  МПС подлежи на глоба в размер от 1800$, отнемане на СУМПС и задържане под стража за период от 3 до 8 месеца</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 26.</a>  Лице, което бъде заловено да произвежда, преработва или държи нелегални субстанции  с цел разпространение, подлежи на глоба до 15 000$.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 27.</a> Лице, което бъде заловено с притежание на наркотични вещества над 10г до 15г, подлежи на глоба в размер на 1 800$.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл. 28.</a>  Лице, което бъде заловено с притежание на наркотични вещества над 20г, подлежи на глоба в размер на 3 000$.</div>
+                        <div class="npk-search-title"> ЗАКОН ЗА ДВИЖЕНИЕ ПО ПЪТИЩАТА /ЗДВП/</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл.1</a> Ако лице управлява МПС без нужното му за този тип МПС СУМПС подлежи на глоба в размер от 1000$</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл.2</a> Ако лице откаже да отбие след звуков и светлинен сигнал подлежи на глоба в размер от 2000$ и задържане в РПУ от 24 до 72 часа</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл.3</a> Ако лице шофира агресивно на пътя неспазвайки пътни значи, светофари или маркировка подлежи на глоба в размер от 700$ и задържане в РПУ от 24 до 48 часа</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл.4</a> Ако лице шофира с превишена скорост подлежи на глоба в размер до 1800$ и отнемане на СУМПС( в определени случай).</div>
+                        <div class="npk-item">    Ал.1 Ако лице шофира с превишена скорост до 30 км/ч в градски условия подлежи на глоба в размер до 800$</div>
+                        <div class="npk-item">    Ал.2 Ако лице шофира с превишена скорост в градски условия  до 50км/ч  подлежи на глоба в размер до 1200$</div>
+                        <div class="npk-item">    Ал.3 Ако лице шофира с превишена скорост в градски условия над 80км/ч  подлежи на глоба в размер до 1800$ и отнемане на СУМПС за 48 часа( 2 дни ирл без книжка и после му я давате) и 24 ка в РПУ ( 10 Мин)</div>
+                        <div class="npk-item">    Ал.4 Ако лице шофира с превишена скорост в извънградски  условия до 100 км/ч  подлежи на глоба в размер до 1300$</div>
+                        <div class="npk-item">    Ал.5 Ако лице шофира с превишена скорост в извънградски  условия над 100 км/ч  подлежи на глоба в размер до 1800$, отнемане на СУМПС за 48 часа и 24-ка в РПУ.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл.5</a> Ако лице управлява МПС без необходимото му пълномощно за предотстъпване подлежи на глоба в размер до 1000$ и конфискуване на МПС.</div>
+
+                        <div class="npk-item"><a class='npk-item-a'>Чл.6</a> Ако лице управлява МПС със затъмнен преден прозорец подлежи на глоба от 2000$</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="codes-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item active-nav" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div>
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>  
+                <div class="nav-item stafflogs-nav-item" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="codes-container">
+                <div class="codes-search-title"> <span class="fas fa-address-card"></span> 10- Кодове</div>
+                <div class="codes-item">10-4 Разбрано!</div>
+                <div class="codes-item">10-6 Зает!</div>
+                <div class="codes-item">10-7 Не е на разположение, в почивка!</div>
+                <div class="codes-item">10-8 На разположение(На работа.)!</div>
+                <div class="codes-item">10-9 Повтори!</div>
+                <div class="codes-item">10-13 10-13А - Неутрализиран Полицай, 10-13B Прострелян Полицай, 10-13C - Полицай в беда</div>
+                <div class="codes-item">10-19 Отивам до...</div>
+                <div class="codes-item">10-20 Локация!</div>
+                <div class="codes-item">10-23 Пристигнал на място!</div>
+                <div class="codes-item">10-25 Докладвай на живо!</div>
+                <div class="codes-item">10-30 Излишно използване на радио!</div>
+                <div class="codes-item">10-31 Престъпление във действие.(10-31 D - Престъпление свързано със Наркотици. 10-31 F - Престъпление бой/побой.</div>
+                <div class="codes-item">10-38 Спиране на мпс за проверка....(Рег. Номер.. Вид.. Локация)</div>
+                <div class="codes-item">10-41 Застъпвам на смяна!</div>
+                <div class="codes-item">10-42 Излизам от смяна!</div>
+                <div class="codes-item">10-50 Пътнотранспортно произшествие!</div>
+                <div class="codes-item">10-52 Нужен е медицински екип!</div>
+                <div class="codes-item">10-71 10-71A - Стрелба пеша, 10-71B - Стрелба от кола</div>
+                <div class="codes-item">10-78 Нужно е подкрепление!</div>
+                <div class="codes-item">10-80 Гонка във процес!</div>
+                <div class="codes-item">10-88 Експлозия!</div>
+                <div class="codes-item">10-90 Обир във действие! ( 10-90 B Обир банка! 10-90 S Обир магазин)</div>
+                <div class="codes-item">10-91 Отвеждане на арестант</div>
+            </div>
+            <div class="codes-container2">
+                <div class="codes-search-title"> <span class="fas fa-clipboard"></span> Кодове:</div>
+                <div class="codes-item">Код 1 Без светлини и без сирени</div>
+                <div class="codes-item">Код 2 С светлини ,но пускане на звук само на светофари</div>
+                <div class="codes-item">Код 3 С светлини и сирени</div>
+                <div class="codes-item">Код 4 Сцената/Мястото защитето</div>
+                <div class="codes-item">Код 5 Felony Stop</div>
+                <div class="codes-item">Код 6 Минаваме да огледаме района</div>
+            </div>
+        </div>
+    </div>
+    <div class="stafflogs-page-container close-all">
+        <div class="header">
+            <img src="img/sasp_badge.png" class="badge-logo">
+            <div class="header-left">
+                <div class="header-title" style="color: #caa95d; font-weight: bold; font-size: 20px;">SAN ANDREAS LAW ENFORCEMENT</div>
+                <div style="color: white; font-weight: lighter; font-size: 18px;">Мобилна База Данни</div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 25px;" class="name-shit">Welcome, Loading...
+                </div>
+                <div style="color: lightgray; font-size: 18px;"><span class="fas fa-map-pin header-pin"></span><span class="header-location"></span></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".dashboard-page-container"><i class="fas fa-home"></i> Начало</div>
+                <div class="nav-item profiles-nav-item" data-page=".profile-page-container"><i class="fas fa-users"></i> Профили</div>
+                <div class="nav-item incidents-nav-item" data-page=".incidents-page-container"><i class="fas fa-clipboard"></i> Доклади</div>
+                <div class="nav-item" data-page=".reports-page-container"><i class="fas fa-file-medical"></i> Мед. Рапорти</div>
+                <div class="nav-item bolo-nav-item" data-page=".bolos-page-container"><i class="fas fa-car"></i> Издирвани МПС-та</div>
+                <div class="nav-item dmv-nav-item" data-page=".dmv-page-container"><i class="fas fa-warehouse"></i> МПС-та</div>
+                <div class="nav-item penalcode-nav-item" data-page=".penalcode-page-container"><i class="fas fa-gamepad"></i> Скицник</div>
+                <div class="nav-item weaponsearch-nav-item" data-page=".weaponsearch-page-container"><i class="fas fa-history"></i> Оръжия</div>
+                <div class="nav-item cam-nav-item" data-page=".cam-page-container"><i class="fas fa-video"></i> Камери</div>
+                <div class="nav-item codes-nav-item" data-page=".codes-page-container"><i class="fas fa-clipboard"></i> Кодове</div>
+                <div class="nav-item globi-nav-item" data-page=".globi-page-container"><i class="fas fa-clipboard"></i> Законодателство</div> 
+                <div class="nav-item npk-nav-item" data-page=".npk-page-container"><i class="fas fa-clipboard"></i> НПК</div>  
+                <div class="nav-item stafflogs-nav-item active-nav" data-page=".stafflogs-page-container"><i class="fas fa-tools"></i> История</div>
+            </div>
+            <div class="stafflogs-container"></div>
+        </div>
+    </div>
+</body>
+
+</html>

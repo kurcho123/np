@@ -1,0 +1,202 @@
+body {
+ overflow: hidden;
+ user-select: none;
+ font-weight: 650;
+ font-family: 'Lato', sans-serif;
+}
+
+.main-container {
+ position: absolute;
+ top: -30vh;
+ left: 25%;
+ display: none;
+}
+
+.menu-items-container {
+ display: none;
+ width: 50vw;
+ height: 50vh;
+ border-radius: 5px;
+ background-color: rgb(68, 68, 68);
+ box-shadow: 1px 1px 6px rgb(5, 5, 5);
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-color: #4C4C4C;
+    padding: 5px;
+    box-shadow: 1px 1px 6px rgb(5, 5, 5);
+}
+
+.item-image:hover {
+    background-color:rgb(51 51 51 / 74%);
+}
+
+.menu-items-container > p {
+ text-align: center;
+ padding-top: 1vh;
+ color: white;
+ font-size: 2.7vh;
+}
+
+.item-list {
+    position: absolute;
+    top: 10vh;
+    left: 64vh;
+    height: 30vh;
+    width: 20vh;
+    overflow: scroll;
+    border: solid;
+    border-color: white;
+    padding: 10px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.item-list::-webkit-scrollbar {
+    display: none;
+}
+
+.item-list > li {
+    color: rgb(204, 204, 204);
+}
+
+.image-items {
+    position: relative;
+    width: 65vh;
+}
+
+input{
+    pointer-events:none;
+}
+
+.inputs {
+    position: absolute;
+    top: 44vh;
+    right: 2vh;
+}
+
+
+.text-input-price {
+    margin-bottom: 0vh;
+    width: 27.4vh;
+    height: 3vh;
+    font-size: 1.5vh;
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.text-input-note {
+ margin-bottom: 2vh;
+ margin-left: 4vh;
+ width: 30vh;
+ height: 3vh;
+ font-size: 1.5vh;
+ border-radius: 10px;
+ font-weight: 800; 
+}
+
+.accept-button {
+    position: absolute;
+    width: 10vh;
+    height: 4vh;
+    top: 46.5vh;
+    margin-left: 27vh;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px rgb(5 5 5);
+    background-color: rgb(41, 100, 41);
+}
+
+.cancel-button {
+    position: absolute;
+    width: 10vh;
+    height: 4vh;
+    top: 46.5vh;
+    margin-left: 40.5vh;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px rgb(5 5 5);
+    background-color: rgb(104, 31, 31);
+}
+
+.accept-button > p, .cancel-button > p {
+ text-align: center;
+ font-size: 1.2vh;
+ color: white;
+}
+
+.accept-button:hover {
+ background-color:  rgba(41, 100, 41, 0.74);
+}
+
+.cancel-button:hover {
+ background-color: rgba(104, 31, 31, 0.74); 
+}
+
+.payment-container {
+ display: none;
+ overflow-x: auto;                  
+ overflow-y: auto;
+ width: 17vw;
+ height: 36vh;
+ border-radius: 5px;
+ background-color: rgb(68, 68, 68);
+ box-shadow: 1px 1px 6px rgb(5, 5, 5);
+}
+
+.payment {
+ position: relative;
+ left: 1vh;
+ top: 0.85vh;
+ width: 15.9vw;
+ height: 4.5vh;
+ margin-top: 1vh;
+ border-radius: 5px;
+ background-color: rgb(182, 182, 182);
+}
+
+.payment:hover {
+ background-color: rgba(182, 182, 182, 0.835);
+}
+
+.payment > p {
+ font-size: 1.2vh;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ padding-top: 0.2vh;
+ padding-left: 0.5vh;
+ color: rgb(53, 53, 53);
+}
+
+.close-button {
+    margin-right: 13px;
+    margin-top: 5px;
+ font-size: 1.5vh;
+ width: 0.7vw;
+ height: 1.5vh;
+ position: absolute;
+ right: 0;
+ text-align: center;
+ color: white;
+}
+
+.close-button:hover > i {
+ color: rgba(104, 31, 31, 0.74); 
+}
+
+::-webkit-scrollbar-track {
+ background-color: transparent;
+}
+  
+::-webkit-scrollbar{
+ width: 0.5vh;
+ background-color: transparent;
+}
+  
+::-webkit-scrollbar-thumb {
+ background-color: transparent;
+}

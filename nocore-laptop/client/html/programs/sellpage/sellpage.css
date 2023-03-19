@@ -1,0 +1,112 @@
+.program-sellpage-header {
+    background: rgb(17, 17, 17);
+    color: #ffffff;
+}
+
+.program-sellpage {
+    height: 100%;
+    width: 100%;
+    color: #131313;
+    background-image: url("../../assets/images/windows.png");
+}
+
+.icon-sellpage {
+    background-position: -240px 0;
+}
+
+.icon-sellpage:hover {
+    background-position: -240px -60px;
+}
+
+.icon-sellpage:active {
+    background-position: -240px -120px;
+}
+
+.icon-sellpage-small {
+    background-position: -251px -193px;
+}
+
+.program-sellpage .card-title {
+    font-size: 20px;
+}
+
+.program-content {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+
+
+.nonclickable {
+    pointer-events: none;
+    cursor: default;
+}
+
+.shopitemscontainer {
+    width: auto;
+    height: auto;
+    overflow: auto;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.shopitemtext {
+    margin-top: 2.5vh;
+}
+
+.item {
+    width: 10vw;
+    max-height: 30vh;
+    margin-top: 4vh;
+    margin-left: 2.5vw;
+    margin-bottom: 2vh;
+    background-color: #252525;
+    color: white;
+    border-radius: 8px;
+}
+
+.item .title {
+    display:block;
+    color:white;
+    font-size: 1.3vh;
+    margin-bottom: 1vh;
+}
+
+#first {
+    margin-top: 2.5vh;
+}
+
+.item .text {
+    display: block;
+    color: white;
+    text-align: center;
+    line-height: 12px;
+    margin-bottom: 5px;
+    font-size: 1.2vh;
+}
+
+.item button {
+    border: 0;
+    /* top: 1px; */
+    margin-bottom: 2vh;
+    margin-top: 1vh;
+    width: 5vw;
+    height: 2.8vh;
+    border-radius: 30px;
+    background-color: #6057d8;
+}
+
+.item button:hover {
+    background-color: #de3a2f;
+    cursor: pointer;
+}
+
+.item img {
+    margin-top: 1.0vh;
+    max-width: 5vw;
+    max-height: 10vh;
+    margin-bottom: 0.5vh;
+}

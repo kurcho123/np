@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/web/build/static/css/main.cbea6a6a.chunk.css",
+    "main.js": "/web/build/static/js/main.aa2057c8.chunk.js",
+    "main.js.map": "/web/build/static/js/main.aa2057c8.chunk.js.map",
+    "runtime-main.js": "/web/build/static/js/runtime-main.ce29f341.js",
+    "runtime-main.js.map": "/web/build/static/js/runtime-main.ce29f341.js.map",
+    "static/js/2.566a941a.chunk.js": "/web/build/static/js/2.566a941a.chunk.js",
+    "static/js/2.566a941a.chunk.js.map": "/web/build/static/js/2.566a941a.chunk.js.map",
+    "index.html": "/web/build/index.html",
+    "static/css/main.cbea6a6a.chunk.css.map": "/web/build/static/css/main.cbea6a6a.chunk.css.map",
+    "static/js/2.566a941a.chunk.js.LICENSE.txt": "/web/build/static/js/2.566a941a.chunk.js.LICENSE.txt",
+    "static/media/crime-hacker.f9d7ab6d.svg": "/web/build/static/media/crime-hacker.f9d7ab6d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ce29f341.js",
+    "static/js/2.566a941a.chunk.js",
+    "static/css/main.cbea6a6a.chunk.css",
+    "static/js/main.aa2057c8.chunk.js"
+  ]
+}

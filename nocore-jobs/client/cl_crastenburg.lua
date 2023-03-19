@@ -1,0 +1,1382 @@
+-- local menu = false
+-- local IsInHotel = false
+-- local Framework = exports['no-core']:GetCoreObject()
+-- local Player = Framework.Functions.GetPlayerData()
+
+-- local drift = false
+
+-- RegisterNetEvent("Framework:Client:OnPlayerLoaded")
+-- AddEventHandler("Framework:Client:OnPlayerLoaded", function()
+-- 	Citizen.SetTimeout(1000, function()
+-- 		Player = Framework.Functions.GetPlayerData()
+-- 	end)
+-- end)
+
+-- RegisterNetEvent("toggledrift")
+-- AddEventHandler("toggledrift", function()
+-- 	local veh = GetVehiclePedIsIn(PlayerPedId())
+-- 	if not drift then
+-- 		drift = true
+-- 		SetDriftTyresEnabled(veh, true)
+-- 		SetReduceDriftVehicleSuspension(veh, true)
+-- 	else
+-- 		drift = false
+-- 		SetDriftTyresEnabled(veh, false)
+-- 	end
+-- end)
+
+-- function UnloadIpl()
+-- 	RemoveIpl('int_hotel_corridor01')
+-- 	RemoveIpl('int_hotel_doubleroom101')
+-- 	RemoveIpl('int_hotel_doubleroom102')
+-- 	RemoveIpl('int_hotel_doubleroom103')
+-- 	RemoveIpl('int_hotel_doubleroom104')
+-- 	RemoveIpl('int_hotel_doubleroom105')
+-- 	RemoveIpl('int_hotel_doubleroom106')
+-- 	RemoveIpl('int_hotel_room101')
+-- 	RemoveIpl('int_hotel_room102')
+-- 	RemoveIpl('int_hotel_room103')
+-- 	RemoveIpl('int_hotel_room104')
+-- 	RemoveIpl('int_hotel_room105')
+-- 	RemoveIpl('int_hotel_room106')
+-- 	RemoveIpl('int_hotel_room107')
+-- 	RemoveIpl('int_hotel_room108')
+-- 	RemoveIpl('int_hotel_room109')
+-- 	RemoveIpl('int_hotel_room110')
+-- 	RemoveIpl('int_hotel_room111')
+-- 	RemoveIpl('int_hotel_room112')
+-- 	RemoveIpl('int_hotel_room113')
+-- 	RemoveIpl('int_hotel_room114')
+-- 	RemoveIpl('int_hotel_room115')
+-- 	RemoveIpl('int_hotel_room116')
+-- 	RemoveIpl('int_hotel_room117')
+-- 	RemoveIpl('int_hotel_room118')
+-- 	RemoveIpl('int_hotel_room119')
+-- 	RemoveIpl('int_hotel_room120')
+-- 	RemoveIpl('int_hotel_room121')
+-- 	RemoveIpl('int_hotel_room122')
+-- 	RemoveIpl('int_hotel_room123')
+-- 	RemoveIpl('int_hotel_room124')
+	
+-- 	RemoveIpl('int_hotel_corridor02')
+-- 	RemoveIpl('int_hotel_doubleroom201')
+-- 	RemoveIpl('int_hotel_doubleroom202')
+-- 	RemoveIpl('int_hotel_doubleroom203')
+-- 	RemoveIpl('int_hotel_doubleroom204')
+-- 	RemoveIpl('int_hotel_doubleroom205')
+-- 	RemoveIpl('int_hotel_doubleroom206')
+-- 	RemoveIpl('int_hotel_room201')
+-- 	RemoveIpl('int_hotel_room202')
+-- 	RemoveIpl('int_hotel_room203')
+-- 	RemoveIpl('int_hotel_room204')
+-- 	RemoveIpl('int_hotel_room205')
+-- 	RemoveIpl('int_hotel_room206')
+-- 	RemoveIpl('int_hotel_room207')
+-- 	RemoveIpl('int_hotel_room208')
+-- 	RemoveIpl('int_hotel_room209')
+-- 	RemoveIpl('int_hotel_room210')
+-- 	RemoveIpl('int_hotel_room211')
+-- 	RemoveIpl('int_hotel_room212')
+-- 	RemoveIpl('int_hotel_room213')
+-- 	RemoveIpl('int_hotel_room214')
+-- 	RemoveIpl('int_hotel_room215')
+-- 	RemoveIpl('int_hotel_room216')
+-- 	RemoveIpl('int_hotel_room217')
+-- 	RemoveIpl('int_hotel_room218')
+-- 	RemoveIpl('int_hotel_room219')
+-- 	RemoveIpl('int_hotel_room220')
+-- 	RemoveIpl('int_hotel_room221')
+-- 	RemoveIpl('int_hotel_room222')
+-- 	RemoveIpl('int_hotel_room223')
+-- 	RemoveIpl('int_hotel_room224')
+	
+-- 	RemoveIpl('int_hotel_corridor03')
+-- 	RemoveIpl('int_hotel_doubleroom301')
+-- 	RemoveIpl('int_hotel_doubleroom302')
+-- 	RemoveIpl('int_hotel_doubleroom303')
+-- 	RemoveIpl('int_hotel_doubleroom304')
+-- 	RemoveIpl('int_hotel_doubleroom305')
+-- 	RemoveIpl('int_hotel_doubleroom306')
+-- 	RemoveIpl('int_hotel_room301')
+-- 	RemoveIpl('int_hotel_room302')
+-- 	RemoveIpl('int_hotel_room303')
+-- 	RemoveIpl('int_hotel_room304')
+-- 	RemoveIpl('int_hotel_room305')
+-- 	RemoveIpl('int_hotel_room306')
+-- 	RemoveIpl('int_hotel_room307')
+-- 	RemoveIpl('int_hotel_room308')
+-- 	RemoveIpl('int_hotel_room309')
+-- 	RemoveIpl('int_hotel_room310')
+-- 	RemoveIpl('int_hotel_room311')
+-- 	RemoveIpl('int_hotel_room312')
+-- 	RemoveIpl('int_hotel_room313')
+-- 	RemoveIpl('int_hotel_room314')
+-- 	RemoveIpl('int_hotel_room315')
+-- 	RemoveIpl('int_hotel_room316')
+-- 	RemoveIpl('int_hotel_room317')
+-- 	RemoveIpl('int_hotel_room318')
+-- 	RemoveIpl('int_hotel_room319')
+-- 	RemoveIpl('int_hotel_room320')
+-- 	RemoveIpl('int_hotel_room321')
+-- 	RemoveIpl('int_hotel_room322')
+-- 	RemoveIpl('int_hotel_room323')
+-- 	RemoveIpl('int_hotel_room324')
+	
+-- 	RemoveIpl('int_hotel_corridor04')
+-- 	RemoveIpl('int_hotel_doubleroom401')
+-- 	RemoveIpl('int_hotel_doubleroom402')
+-- 	RemoveIpl('int_hotel_doubleroom403')
+-- 	RemoveIpl('int_hotel_doubleroom404')
+-- 	RemoveIpl('int_hotel_doubleroom405')
+-- 	RemoveIpl('int_hotel_doubleroom406')
+-- 	RemoveIpl('int_hotel_room401')
+-- 	RemoveIpl('int_hotel_room402')
+-- 	RemoveIpl('int_hotel_room403')
+-- 	RemoveIpl('int_hotel_room404')
+-- 	RemoveIpl('int_hotel_room405')
+-- 	RemoveIpl('int_hotel_room406')
+-- 	RemoveIpl('int_hotel_room407')
+-- 	RemoveIpl('int_hotel_room408')
+-- 	RemoveIpl('int_hotel_room409')
+-- 	RemoveIpl('int_hotel_room410')
+-- 	RemoveIpl('int_hotel_room411')
+-- 	RemoveIpl('int_hotel_room412')
+-- 	RemoveIpl('int_hotel_room413')
+-- 	RemoveIpl('int_hotel_room414')
+-- 	RemoveIpl('int_hotel_room415')
+-- 	RemoveIpl('int_hotel_room416')
+-- 	RemoveIpl('int_hotel_room417')
+-- 	RemoveIpl('int_hotel_room418')
+-- 	RemoveIpl('int_hotel_room419')
+-- 	RemoveIpl('int_hotel_room420')
+-- 	RemoveIpl('int_hotel_room421')
+-- 	RemoveIpl('int_hotel_room422')
+-- 	RemoveIpl('int_hotel_room423')
+-- 	RemoveIpl('int_hotel_room424')
+	
+-- 	RemoveIpl('int_hotel_corridor05')
+-- 	RemoveIpl('int_hotel_doubleroom501')
+-- 	RemoveIpl('int_hotel_doubleroom502')
+-- 	RemoveIpl('int_hotel_doubleroom503')
+-- 	RemoveIpl('int_hotel_doubleroom504')
+-- 	RemoveIpl('int_hotel_doubleroom505')
+-- 	RemoveIpl('int_hotel_doubleroom506')
+-- 	RemoveIpl('int_hotel_room501')
+-- 	RemoveIpl('int_hotel_room502')
+-- 	RemoveIpl('int_hotel_room503')
+-- 	RemoveIpl('int_hotel_room504')
+-- 	RemoveIpl('int_hotel_room505')
+-- 	RemoveIpl('int_hotel_room506')
+-- 	RemoveIpl('int_hotel_room507')
+-- 	RemoveIpl('int_hotel_room508')
+-- 	RemoveIpl('int_hotel_room509')
+-- 	RemoveIpl('int_hotel_room510')
+-- 	RemoveIpl('int_hotel_room511')
+-- 	RemoveIpl('int_hotel_room512')
+-- 	RemoveIpl('int_hotel_room513')
+-- 	RemoveIpl('int_hotel_room514')
+-- 	RemoveIpl('int_hotel_room515')
+-- 	RemoveIpl('int_hotel_room516')
+-- 	RemoveIpl('int_hotel_room517')
+-- 	RemoveIpl('int_hotel_room518')
+-- 	RemoveIpl('int_hotel_room519')
+-- 	RemoveIpl('int_hotel_room520')
+-- 	RemoveIpl('int_hotel_room521')
+-- 	RemoveIpl('int_hotel_room522')
+-- 	RemoveIpl('int_hotel_room523')
+-- 	RemoveIpl('int_hotel_room524')
+	
+-- 	RemoveIpl('int_hotel_corridor06')
+-- 	RemoveIpl('int_hotel_doubleroom601')
+-- 	RemoveIpl('int_hotel_doubleroom602')
+-- 	RemoveIpl('int_hotel_doubleroom603')
+-- 	RemoveIpl('int_hotel_doubleroom604')
+-- 	RemoveIpl('int_hotel_doubleroom605')
+-- 	RemoveIpl('int_hotel_doubleroom606')
+-- 	RemoveIpl('int_hotel_room601')
+-- 	RemoveIpl('int_hotel_room602')
+-- 	RemoveIpl('int_hotel_room603')
+-- 	RemoveIpl('int_hotel_room604')
+-- 	RemoveIpl('int_hotel_room605')
+-- 	RemoveIpl('int_hotel_room606')
+-- 	RemoveIpl('int_hotel_room607')
+-- 	RemoveIpl('int_hotel_room608')
+-- 	RemoveIpl('int_hotel_room609')
+-- 	RemoveIpl('int_hotel_room610')
+-- 	RemoveIpl('int_hotel_room611')
+-- 	RemoveIpl('int_hotel_room612')
+-- 	RemoveIpl('int_hotel_room613')
+-- 	RemoveIpl('int_hotel_room614')
+-- 	RemoveIpl('int_hotel_room615')
+-- 	RemoveIpl('int_hotel_room616')
+-- 	RemoveIpl('int_hotel_room617')
+-- 	RemoveIpl('int_hotel_room618')
+-- 	RemoveIpl('int_hotel_room619')
+-- 	RemoveIpl('int_hotel_room620')
+-- 	RemoveIpl('int_hotel_room621')
+-- 	RemoveIpl('int_hotel_room622')
+-- 	RemoveIpl('int_hotel_room623')
+-- 	RemoveIpl('int_hotel_room624')
+	
+-- 	RemoveIpl('int_hotel_corridor07')
+-- 	RemoveIpl('int_hotel_doubleroom701')
+-- 	RemoveIpl('int_hotel_doubleroom702')
+-- 	RemoveIpl('int_hotel_doubleroom703')
+-- 	RemoveIpl('int_hotel_doubleroom704')
+-- 	RemoveIpl('int_hotel_doubleroom705')
+-- 	RemoveIpl('int_hotel_doubleroom706')
+-- 	RemoveIpl('int_hotel_room701')
+-- 	RemoveIpl('int_hotel_room702')
+-- 	RemoveIpl('int_hotel_room703')
+-- 	RemoveIpl('int_hotel_room704')
+-- 	RemoveIpl('int_hotel_room705')
+-- 	RemoveIpl('int_hotel_room706')
+-- 	RemoveIpl('int_hotel_room707')
+-- 	RemoveIpl('int_hotel_room708')
+-- 	RemoveIpl('int_hotel_room709')
+-- 	RemoveIpl('int_hotel_room710')
+-- 	RemoveIpl('int_hotel_room711')
+-- 	RemoveIpl('int_hotel_room712')
+-- 	RemoveIpl('int_hotel_room713')
+-- 	RemoveIpl('int_hotel_room714')
+-- 	RemoveIpl('int_hotel_room715')
+-- 	RemoveIpl('int_hotel_room716')
+-- 	RemoveIpl('int_hotel_room717')
+-- 	RemoveIpl('int_hotel_room718')
+-- 	RemoveIpl('int_hotel_room719')
+-- 	RemoveIpl('int_hotel_room720')
+-- 	RemoveIpl('int_hotel_room721')
+-- 	RemoveIpl('int_hotel_room722')
+-- 	RemoveIpl('int_hotel_room723')
+-- 	RemoveIpl('int_hotel_room724')
+-- end
+
+-- function loadEtage(level)
+-- 	if level == 0 then
+-- 		IsInHotel = false
+-- 	elseif level == 1 then
+-- 		IsInHotel = true
+-- 		loadEtage1()
+-- 	elseif level == 2 then
+-- 		IsInHotel = true
+-- 		loadEtage2()
+-- 	elseif level == 3 then
+-- 		IsInHotel = true
+-- 		loadEtage3()
+-- 	elseif level == 4 then
+-- 		IsInHotel = true
+-- 		loadEtage4()
+-- 	elseif level == 5 then
+-- 		IsInHotel = true
+-- 		loadEtage5()
+-- 	elseif level == 6 then
+-- 		IsInHotel = true
+-- 		loadEtage6()
+-- 	elseif level == 7 then
+-- 		IsInHotel = true
+-- 		loadEtage7()
+-- 	end
+-- end
+
+-- function loadEtage1()
+-- 	RequestIpl('int_hotel_corridor01')
+-- 	RequestIpl('int_hotel_doubleroom101')
+-- 	RequestIpl('int_hotel_doubleroom102')
+-- 	RequestIpl('int_hotel_doubleroom103')
+-- 	RequestIpl('int_hotel_doubleroom104')
+-- 	RequestIpl('int_hotel_doubleroom105')
+-- 	RequestIpl('int_hotel_doubleroom106')
+-- 	RequestIpl('int_hotel_room101')
+-- 	RequestIpl('int_hotel_room102')
+-- 	RequestIpl('int_hotel_room103')
+-- 	RequestIpl('int_hotel_room104')
+-- 	RequestIpl('int_hotel_room105')
+-- 	RequestIpl('int_hotel_room106')
+-- 	RequestIpl('int_hotel_room107')
+-- 	RequestIpl('int_hotel_room108')
+-- 	RequestIpl('int_hotel_room109')
+-- 	RequestIpl('int_hotel_room110')
+-- 	RequestIpl('int_hotel_room111')
+-- 	RequestIpl('int_hotel_room112')
+-- 	RequestIpl('int_hotel_room113')
+-- 	RequestIpl('int_hotel_room114')
+-- 	RequestIpl('int_hotel_room115')
+-- 	RequestIpl('int_hotel_room116')
+-- 	RequestIpl('int_hotel_room117')
+-- 	RequestIpl('int_hotel_room118')
+-- 	RequestIpl('int_hotel_room119')
+-- 	RequestIpl('int_hotel_room120')
+-- 	RequestIpl('int_hotel_room121')
+-- 	RequestIpl('int_hotel_room122')
+-- 	RequestIpl('int_hotel_room123')
+-- 	RequestIpl('int_hotel_room124')
+-- end
+
+-- function loadEtage2()
+-- 	RequestIpl('int_hotel_corridor02')
+-- 	RequestIpl('int_hotel_doubleroom201')
+-- 	RequestIpl('int_hotel_doubleroom202')
+-- 	RequestIpl('int_hotel_doubleroom203')
+-- 	RequestIpl('int_hotel_doubleroom204')
+-- 	RequestIpl('int_hotel_doubleroom205')
+-- 	RequestIpl('int_hotel_doubleroom206')
+-- 	RequestIpl('int_hotel_room201')
+-- 	RequestIpl('int_hotel_room202')
+-- 	RequestIpl('int_hotel_room203')
+-- 	RequestIpl('int_hotel_room204')
+-- 	RequestIpl('int_hotel_room205')
+-- 	RequestIpl('int_hotel_room206')
+-- 	RequestIpl('int_hotel_room207')
+-- 	RequestIpl('int_hotel_room208')
+-- 	RequestIpl('int_hotel_room209')
+-- 	RequestIpl('int_hotel_room210')
+-- 	RequestIpl('int_hotel_room211')
+-- 	RequestIpl('int_hotel_room212')
+-- 	RequestIpl('int_hotel_room213')
+-- 	RequestIpl('int_hotel_room214')
+-- 	RequestIpl('int_hotel_room215')
+-- 	RequestIpl('int_hotel_room216')
+-- 	RequestIpl('int_hotel_room217')
+-- 	RequestIpl('int_hotel_room218')
+-- 	RequestIpl('int_hotel_room219')
+-- 	RequestIpl('int_hotel_room220')
+-- 	RequestIpl('int_hotel_room221')
+-- 	RequestIpl('int_hotel_room222')
+-- 	RequestIpl('int_hotel_room223')
+-- 	RequestIpl('int_hotel_room224')
+-- end
+
+-- function loadEtage3()
+-- 	RequestIpl('int_hotel_corridor03')
+-- 	RequestIpl('int_hotel_doubleroom301')
+-- 	RequestIpl('int_hotel_doubleroom302')
+-- 	RequestIpl('int_hotel_doubleroom303')
+-- 	RequestIpl('int_hotel_doubleroom304')
+-- 	RequestIpl('int_hotel_doubleroom305')
+-- 	RequestIpl('int_hotel_doubleroom306')
+-- 	RequestIpl('int_hotel_room301')
+-- 	RequestIpl('int_hotel_room302')
+-- 	RequestIpl('int_hotel_room303')
+-- 	RequestIpl('int_hotel_room304')
+-- 	RequestIpl('int_hotel_room305')
+-- 	RequestIpl('int_hotel_room306')
+-- 	RequestIpl('int_hotel_room307')
+-- 	RequestIpl('int_hotel_room308')
+-- 	RequestIpl('int_hotel_room309')
+-- 	RequestIpl('int_hotel_room310')
+-- 	RequestIpl('int_hotel_room311')
+-- 	RequestIpl('int_hotel_room312')
+-- 	RequestIpl('int_hotel_room313')
+-- 	RequestIpl('int_hotel_room314')
+-- 	RequestIpl('int_hotel_room315')
+-- 	RequestIpl('int_hotel_room316')
+-- 	RequestIpl('int_hotel_room317')
+-- 	RequestIpl('int_hotel_room318')
+-- 	RequestIpl('int_hotel_room319')
+-- 	RequestIpl('int_hotel_room320')
+-- 	RequestIpl('int_hotel_room321')
+-- 	RequestIpl('int_hotel_room322')
+-- 	RequestIpl('int_hotel_room323')
+-- 	RequestIpl('int_hotel_room324')
+-- end
+
+-- function loadEtage4()
+-- 	RequestIpl('int_hotel_corridor04')
+-- 	RequestIpl('int_hotel_doubleroom401')
+-- 	RequestIpl('int_hotel_doubleroom402')
+-- 	RequestIpl('int_hotel_doubleroom403')
+-- 	RequestIpl('int_hotel_doubleroom404')
+-- 	RequestIpl('int_hotel_doubleroom405')
+-- 	RequestIpl('int_hotel_doubleroom406')
+-- 	RequestIpl('int_hotel_room401')
+-- 	RequestIpl('int_hotel_room402')
+-- 	RequestIpl('int_hotel_room403')
+-- 	RequestIpl('int_hotel_room404')
+-- 	RequestIpl('int_hotel_room405')
+-- 	RequestIpl('int_hotel_room406')
+-- 	RequestIpl('int_hotel_room407')
+-- 	RequestIpl('int_hotel_room408')
+-- 	RequestIpl('int_hotel_room409')
+-- 	RequestIpl('int_hotel_room410')
+-- 	RequestIpl('int_hotel_room411')
+-- 	RequestIpl('int_hotel_room412')
+-- 	RequestIpl('int_hotel_room413')
+-- 	RequestIpl('int_hotel_room414')
+-- 	RequestIpl('int_hotel_room415')
+-- 	RequestIpl('int_hotel_room416')
+-- 	RequestIpl('int_hotel_room417')
+-- 	RequestIpl('int_hotel_room418')
+-- 	RequestIpl('int_hotel_room419')
+-- 	RequestIpl('int_hotel_room420')
+-- 	RequestIpl('int_hotel_room421')
+-- 	RequestIpl('int_hotel_room422')
+-- 	RequestIpl('int_hotel_room423')
+-- 	RequestIpl('int_hotel_room424')
+-- end
+
+-- function loadEtage5()
+-- 	RequestIpl('int_hotel_corridor05')
+-- 	RequestIpl('int_hotel_doubleroom501')
+-- 	RequestIpl('int_hotel_doubleroom502')
+-- 	RequestIpl('int_hotel_doubleroom503')
+-- 	RequestIpl('int_hotel_doubleroom504')
+-- 	RequestIpl('int_hotel_doubleroom505')
+-- 	RequestIpl('int_hotel_doubleroom506')
+-- 	RequestIpl('int_hotel_room501')
+-- 	RequestIpl('int_hotel_room502')
+-- 	RequestIpl('int_hotel_room503')
+-- 	RequestIpl('int_hotel_room504')
+-- 	RequestIpl('int_hotel_room505')
+-- 	RequestIpl('int_hotel_room506')
+-- 	RequestIpl('int_hotel_room507')
+-- 	RequestIpl('int_hotel_room508')
+-- 	RequestIpl('int_hotel_room509')
+-- 	RequestIpl('int_hotel_room510')
+-- 	RequestIpl('int_hotel_room511')
+-- 	RequestIpl('int_hotel_room512')
+-- 	RequestIpl('int_hotel_room513')
+-- 	RequestIpl('int_hotel_room514')
+-- 	RequestIpl('int_hotel_room515')
+-- 	RequestIpl('int_hotel_room516')
+-- 	RequestIpl('int_hotel_room517')
+-- 	RequestIpl('int_hotel_room518')
+-- 	RequestIpl('int_hotel_room519')
+-- 	RequestIpl('int_hotel_room520')
+-- 	RequestIpl('int_hotel_room521')
+-- 	RequestIpl('int_hotel_room522')
+-- 	RequestIpl('int_hotel_room523')
+-- 	RequestIpl('int_hotel_room524')
+-- end
+
+-- function loadEtage6()
+-- 	RequestIpl('int_hotel_corridor06')
+-- 	RequestIpl('int_hotel_doubleroom601')
+-- 	RequestIpl('int_hotel_doubleroom602')
+-- 	RequestIpl('int_hotel_doubleroom603')
+-- 	RequestIpl('int_hotel_doubleroom604')
+-- 	RequestIpl('int_hotel_doubleroom605')
+-- 	RequestIpl('int_hotel_doubleroom606')
+-- 	RequestIpl('int_hotel_room601')
+-- 	RequestIpl('int_hotel_room602')
+-- 	RequestIpl('int_hotel_room603')
+-- 	RequestIpl('int_hotel_room604')
+-- 	RequestIpl('int_hotel_room605')
+-- 	RequestIpl('int_hotel_room606')
+-- 	RequestIpl('int_hotel_room607')
+-- 	RequestIpl('int_hotel_room608')
+-- 	RequestIpl('int_hotel_room609')
+-- 	RequestIpl('int_hotel_room610')
+-- 	RequestIpl('int_hotel_room611')
+-- 	RequestIpl('int_hotel_room612')
+-- 	RequestIpl('int_hotel_room613')
+-- 	RequestIpl('int_hotel_room614')
+-- 	RequestIpl('int_hotel_room615')
+-- 	RequestIpl('int_hotel_room616')
+-- 	RequestIpl('int_hotel_room617')
+-- 	RequestIpl('int_hotel_room618')
+-- 	RequestIpl('int_hotel_room619')
+-- 	RequestIpl('int_hotel_room620')
+-- 	RequestIpl('int_hotel_room621')
+-- 	RequestIpl('int_hotel_room622')
+-- 	RequestIpl('int_hotel_room623')
+-- 	RequestIpl('int_hotel_room624')
+-- end
+
+-- function loadEtage7()
+-- 	RequestIpl('int_hotel_corridor07')
+-- 	RequestIpl('int_hotel_doubleroom701')
+-- 	RequestIpl('int_hotel_doubleroom702')
+-- 	RequestIpl('int_hotel_doubleroom703')
+-- 	RequestIpl('int_hotel_doubleroom704')
+-- 	RequestIpl('int_hotel_doubleroom705')
+-- 	RequestIpl('int_hotel_doubleroom706')
+-- 	RequestIpl('int_hotel_room701')
+-- 	RequestIpl('int_hotel_room702')
+-- 	RequestIpl('int_hotel_room703')
+-- 	RequestIpl('int_hotel_room704')
+-- 	RequestIpl('int_hotel_room705')
+-- 	RequestIpl('int_hotel_room706')
+-- 	RequestIpl('int_hotel_room707')
+-- 	RequestIpl('int_hotel_room708')
+-- 	RequestIpl('int_hotel_room709')
+-- 	RequestIpl('int_hotel_room710')
+-- 	RequestIpl('int_hotel_room711')
+-- 	RequestIpl('int_hotel_room712')
+-- 	RequestIpl('int_hotel_room713')
+-- 	RequestIpl('int_hotel_room714')
+-- 	RequestIpl('int_hotel_room715')
+-- 	RequestIpl('int_hotel_room716')
+-- 	RequestIpl('int_hotel_room717')
+-- 	RequestIpl('int_hotel_room718')
+-- 	RequestIpl('int_hotel_room719')
+-- 	RequestIpl('int_hotel_room720')
+-- 	RequestIpl('int_hotel_room721')
+-- 	RequestIpl('int_hotel_room722')
+-- 	RequestIpl('int_hotel_room723')
+-- 	RequestIpl('int_hotel_room724')
+-- end
+
+
+-- function DisplayHelpText(text)
+-- 	BeginTextCommandDisplayHelp("STRING")
+-- 	AddTextComponentSubstringPlayerName(text)
+-- 	DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+-- end
+
+
+-- incircle = {}
+
+-- function teleport(pos)
+--     local ped = PlayerPedId()
+--     Citizen.CreateThread(function()
+ 
+--         NetworkFadeOutEntity(ped, true, false)
+--         Citizen.Wait(250)
+
+--         SetEntityCoords(ped, pos.x, pos.y, pos.z-0.5, 1, 0, 0, 1)
+--         NetworkFadeInEntity(ped, 0)
+
+--     end)
+-- end
+
+-- UnloadIpl()
+
+-- function etape1()
+-- 	DoScreenFadeOut(150+1)
+-- 	while not IsScreenFadedOut() do
+-- 		Wait(0)
+-- 	end
+-- 	TriggerEvent("nocore-sound:client:play", "Shop", 0.25)
+-- 	FreezeEntityPosition(PlayerPedId(),true)
+	
+-- 	UnloadIpl()
+-- 	Wait(250)
+-- end
+
+-- function etape2(coords)
+-- 	Wait(250)
+-- 	teleport(coords)
+-- 	FreezeEntityPosition(PlayerPedId(),false)
+-- 	Wait(500)
+-- 	DoScreenFadeIn(500)
+-- end
+
+-- RegisterNetEvent("nocore-hotel:client:OpenElevator")
+-- AddEventHandler("nocore-hotel:client:OpenElevator", function(data)
+-- 	local sendMenu = {}
+-- 	table.insert(sendMenu,{
+-- 		id = 1,
+-- 		header = "Aсансьор",
+-- 		txt = "",
+-- 		isMenuHeader = true
+-- 	})
+-- 	for k, v in pairs(Crastenburg.Elevators) do
+-- 		local AnimCoords = Crastenburg.Elevators[data.level][data.elevator].AnimCoords
+-- 		if AnimCoords == nil then
+-- 			AnimCoords = Crastenburg.Elevators[k][data.elevator].Spawn
+-- 		end
+-- 		table.insert(sendMenu,{
+-- 			id = #sendMenu+1,
+-- 			header = 'Етаж '..k,
+-- 			txt = '',
+-- 			disabled = k == data.level,
+-- 			params = { 
+-- 				event = "nocore-hotel:client:UseElevator",
+-- 				args = {
+-- 					elevator = data.elevator,
+-- 					spawn = Crastenburg.Elevators[k][data.elevator].Spawn,
+-- 					coords = AnimCoords,
+-- 					level = k
+-- 				}
+-- 			}
+-- 		})
+-- 	end
+-- 	table.insert(sendMenu,{
+-- 		id = #sendMenu+1,
+-- 		header = "Затвори",
+-- 		txt = "",
+-- 		params = { 
+-- 			event = "fakeevnettt",
+-- 			args = {}
+-- 		}
+-- 	})
+-- 	exports['nocore-context']:openMenu(sendMenu)
+-- end)
+
+-- RegisterNetEvent("nocore-hotel:client:UseElevator")
+-- AddEventHandler("nocore-hotel:client:UseElevator", function(data)
+-- 	TaskGoStraightToCoord(PlayerPedId(), data.coords.x, data.coords.y, data.coords.z - 0.98, 1.0, -1, data.coords.h, 786603, 1.0)
+-- 	Citizen.Wait(2500)
+-- 	exports['nocore-assets']:RequestAnimationDict('anim_heist@hs3f@ig6_push_button@female@')
+-- 	TaskPlayAnim(PlayerPedId(), "anim_heist@hs3f@ig6_push_button@female@", "push_button", 2.0, 2.0, -1, 2, 0, false, false, false)
+-- 	Citizen.Wait(2500)
+--     etape1()
+-- 	loadEtage(data.level)
+-- 	etape2(data.spawn)
+-- 	exports.nui_doorlock:updateDoors()
+-- end)
+
+-- RegisterNetEvent('nocore-hotel:client:setkey:keyboard')
+-- AddEventHandler('nocore-hotel:client:setkey:keyboard', function(keyslot)
+-- 	print(keyslot)
+-- 	local keyboard = exports["nocore-keyboard"]:KeyboardInput({
+-- 		header = "Създайте ключ", 
+-- 		rows = {
+-- 			{
+-- 				id = 0,  
+-- 				txt = "Label"
+-- 			},
+-- 			{
+-- 				id = 1,  
+-- 				txt = "Room"
+-- 			},
+-- 			{
+-- 				id = 2,  
+-- 				txt = "Key-code"
+-- 			}
+-- 		}
+-- 	})
+-- 	if keyboard ~= nil then
+-- 		if keyboard[1].input == nil then return end
+-- 		if keyboard[2].input == nil then return end
+-- 		if keyboard[3].input == nil then return end
+-- 		TriggerServerEvent('nocore-hotel:server:createkey', keyslot, {keyboard[1].input, keyboard[2].input, keyboard[3].input})
+-- 	end
+-- end)
+
+-- --[[ RegisterCommand('testemote', function()
+-- 	exports['nocore-assets']:RequestAnimationDict('anim_heist@hs3f@ig6_push_button@female@')
+-- 	TaskPlayAnim(PlayerPedId(), "anim_heist@hs3f@ig6_push_button@female@", "push_button", 2.0, 2.0, -1, 2, 0, false, false, false)
+-- end) ]]
+
+-- RegisterNetEvent('nocore-hotel:client:use:key')
+-- AddEventHandler('nocore-hotel:client:use:key', function(data)
+-- 	local PlayerCoords = GetEntityCoords(PlayerPedId())
+--     if not exports['nocore-hospital']:GetDeathStatus() and IsInHotel then
+-- 		if #(PlayerCoords - Crastenburg.Stashes[tonumber(data.room)].coords) < 2 then
+-- 			local sendMenu = {}
+-- 			table.insert(sendMenu,{
+-- 				id = 1,
+-- 				header = "Crastenburg Hotel",
+-- 				txt = "",
+-- 				isMenuHeader = true
+-- 			})
+-- 			table.insert(sendMenu,{
+-- 			  id = #sendMenu+1,
+-- 			  header = "Шкаф",
+-- 			  txt = "шкафче с рафтчета",
+-- 			  params = { 
+-- 				  event = "nocore-hotel:client:open:stash",
+-- 				  args = {
+-- 					  room = data.room,
+-- 				  }
+-- 			  }
+-- 			})
+-- 			table.insert(sendMenu,{
+-- 			  id = #sendMenu+1,
+-- 			  header = "Гардероб",
+-- 			  txt = "гардеробче със закачалки",
+-- 			  params = { 
+-- 				  event = "fivem-appearance:client:changeOutfitMenuInHousing",
+-- 				  args = {}
+-- 			  }
+-- 			})
+-- 			table.insert(sendMenu,{
+-- 				id = #sendMenu+1,
+-- 				header = "Затвори",
+-- 				txt = "",
+-- 				params = { 
+-- 					event = "fakeevnettt",
+-- 					args = {}
+-- 				}
+-- 			})
+-- 			exports['nocore-context']:openMenu(sendMenu)
+-- 		end
+--     end
+-- end)
+
+-- RegisterNetEvent('nocore-hotel:client:open:stash')
+-- AddEventHandler('nocore-hotel:client:open:stash', function(data)
+-- 	local PlayerCoords = GetEntityCoords(PlayerPedId())
+--     if not exports['nocore-hospital']:GetDeathStatus() and IsInHotel then
+-- 		local Other = {maxweight = 500000, slots = 20, label = 'Шкафче'}
+-- 		local Room = data.room
+-- 		if tonumber(string.sub(Room, -2)) >= 25 then
+-- 			Other = {maxweight = 600000, slots = 25, label = 'Шкафче'}
+-- 		end
+-- 		TriggerEvent("nocore-inventory:client:SetCurrentStash", 'hotel_'..data.room)
+-- 		TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", 'hotel_'..data.room, Other)
+-- 		TriggerEvent("nocore-sound:client:play", "stash-open", 0.4)
+--     end
+-- end)
+
+-- RegisterNetEvent('nocore-hotel:client:OpenKeyHolder') 
+-- AddEventHandler('nocore-hotel:client:OpenKeyHolder', function()
+--     if not exports['nocore-hospital']:GetDeathStatus() then
+-- 		local Other = {maxweight = 5000, slots = 5, label = 'Key Holder'}
+-- 		TriggerEvent("nocore-inventory:client:SetCurrentStash", 'hkeyholder_'..Player.citizenid)
+-- 		TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", 'hkeyholder_'..Player.citizenid, Other)
+-- 		TriggerEvent("nocore-sound:client:play", "keyholder", 0.4)
+--     end
+-- end)
+
+-- RegisterNetEvent('nocore-hotel:client:OpenKeyHolderA') 
+-- AddEventHandler('nocore-hotel:client:OpenKeyHolderA', function()
+--     if not exports['nocore-hospital']:GetDeathStatus() and Player.job.name == "crastenburg" then
+-- 		local Other = {maxweight = 210000, slots = 210, label = 'Admin Key Holder'}
+-- 		TriggerEvent("nocore-inventory:client:SetCurrentStash", 'adminhotelkeys')
+-- 		TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", 'adminhotelkeys', Other)
+-- 		TriggerEvent("nocore-sound:client:play", "stash-open", 0.4)
+--     end
+-- end)
+
+-- RegisterNetEvent('nocore-hotel:client:OpenRecepciq') 
+-- AddEventHandler('nocore-hotel:client:OpenRecepciq', function()
+--     if not exports['nocore-hospital']:GetDeathStatus() then
+-- 		local Other = {maxweight = 25000, slots = 5, label = 'Рецепция'}
+-- 		TriggerEvent("nocore-inventory:client:SetCurrentStash", 'hotelreception')
+-- 		TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", 'hotelreception', Other)
+-- 		--TriggerEvent("nocore-sound:client:play", "stash-open", 0.4)
+--     end
+-- end)
+
+-- RegisterNetEvent('nocore-hotel:client:OpenSquad') 
+-- AddEventHandler('nocore-hotel:client:OpenSquad', function()
+--     if not exports['nocore-hospital']:GetDeathStatus() then
+-- 		local Other = {maxweight = 200000, slots = 100, label = 'Скуад'}
+-- 		TriggerEvent("nocore-inventory:client:SetCurrentStash", 'hotelsquad')
+-- 		TriggerServerEvent("nocore-inventory:server:OpenInventory", "stash", 'hotelsquad', Other)
+-- 		TriggerEvent("nocore-sound:client:play", "stash-open", 0.4)
+--     end
+-- end)
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 01", vector3(-1196.23, -172.25, 39.33), 0.4, 0.2, {
+-- 	name="Hotel Elevator 01",
+-- 	heading  = 63,
+-- 	maxZ = 39.8,
+-- 	minZ = 39.0,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 0,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 02", vector3(-1194.81, -169.58, 39.33), 0.4, 0.2, {
+-- 	name="Hotel Elevator 02",
+-- 	heading  = 62,
+-- 	maxZ = 39.8,
+-- 	minZ = 39.0,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 0,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 04", vector3(-1189.74, -174.94, 39.33), 0.4, 0.2, {
+-- 	name="Hotel Elevator 04",
+-- 	heading  = 60,
+-- 	maxZ = 39.8,
+-- 	minZ = 39.0,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 0,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 03", vector3(-1191.17, -177.59, 39.33), 0.4, 0.2, {
+-- 	name="Hotel Elevator 03",
+-- 	heading  = 61,
+-- 	maxZ = 39.8,
+-- 	minZ = 39.0,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 0,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 11", vector3(-1203.7, -189.86, 47.82), 0.2, 0.4, {
+-- 	name="Elevator11",
+-- 	heading=37,
+-- 	maxZ = 48.5,
+-- 	minZ = 47.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 1,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 21", vector3(-1203.7, -189.86, 51.82), 0.2, 0.4, {
+-- 	name="Elevator21",
+-- 	heading=37,
+-- 	maxZ = 52.5,
+-- 	minZ = 51.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 2,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 31", vector3(-1203.7, -189.86, 55.82), 0.2, 0.4, {
+-- 	name="Elevator31",
+-- 	heading=37,
+-- 	maxZ = 56.5,
+-- 	minZ = 55.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 3,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 41", vector3(-1203.7, -189.86, 59.82), 0.2, 0.4, {
+-- 	name="Elevator41",
+-- 	heading=37,
+-- 	maxZ = 60.5,
+-- 	minZ = 59.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 4,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 51", vector3(-1203.7, -189.86, 63.82), 0.2, 0.4, {
+-- 	name="Elevator51",
+-- 	heading=37,
+-- 	maxZ = 64.5,
+-- 	minZ = 63.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 5,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 61", vector3(-1203.7, -189.86, 67.82), 0.2, 0.4, {
+-- 	name="Elevator61",
+-- 	heading=37,
+-- 	maxZ = 68.5,
+-- 	minZ = 67.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 6,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 71", vector3(-1203.7, -189.86, 71.82), 0.2, 0.4, {
+-- 	name="Elevator71",
+-- 	heading=37,
+-- 	maxZ = 72.5,
+-- 	minZ = 71.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 7,
+--         elevator = 1
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 12", vector3(-1205.486, -187.5127, 47.82), 0.2, 0.4, {
+-- 	name="Elevator12",
+-- 	heading=37,
+-- 	maxZ = 48.5,
+-- 	minZ = 47.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 1,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 22", vector3(-1205.486, -187.5127, 51.82), 0.2, 0.4, {
+-- 	name="Elevator22",
+-- 	heading=37,
+-- 	maxZ = 52.5,
+-- 	minZ = 51.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 2,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 32", vector3(-1205.486, -187.5127, 55.82), 0.2, 0.4, {
+-- 	name="Elevator32",
+-- 	heading=37,
+-- 	maxZ = 56.5,
+-- 	minZ = 55.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 3,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 42", vector3(-1205.486, -187.5127, 59.82), 0.2, 0.4, {
+-- 	name="Elevator42",
+-- 	heading=37,
+-- 	maxZ = 60.5,
+-- 	minZ = 59.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 4,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 52", vector3(-1205.486, -187.5127, 63.82), 0.2, 0.4, {
+-- 	name="Elevator52",
+-- 	heading=37,
+-- 	maxZ = 64.5,
+-- 	minZ = 63.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 5,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 62", vector3(-1205.486, -187.5127, 67.82), 0.2, 0.4, {
+-- 	name="Elevator62",
+-- 	heading=37,
+-- 	maxZ = 68.5,
+-- 	minZ = 67.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 6,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 72", vector3(-1205.486, -187.5127, 71.82), 0.2, 0.4, {
+-- 	name="Elevator72",
+-- 	heading=37,
+-- 	maxZ = 72.5,
+-- 	minZ = 71.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 7,
+--         elevator = 2
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 13", vector3(-1198.567, -185.0992, 47.82), 0.2, 0.4, {
+-- 	name="Elevator13",
+-- 	heading=37,
+-- 	maxZ = 48.5,
+-- 	minZ = 47.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 1,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 23", vector3(-1198.567, -185.0992, 51.82), 0.2, 0.4, {
+-- 	name="Elevator23",
+-- 	heading=37,
+-- 	maxZ = 52.5,
+-- 	minZ = 51.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 2,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 33", vector3(-1198.567, -185.0992, 55.82), 0.2, 0.4, {
+-- 	name="Elevator33",
+-- 	heading=37,
+-- 	maxZ = 56.5,
+-- 	minZ = 55.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 3,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 43", vector3(-1198.567, -185.0992, 59.82), 0.2, 0.4, {
+-- 	name="Elevator43",
+-- 	heading=37,
+-- 	maxZ = 60.5,
+-- 	minZ = 59.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 4,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 53", vector3(-1198.567, -185.0992, 63.82), 0.2, 0.4, {
+-- 	name="Elevator53",
+-- 	heading=37,
+-- 	maxZ = 64.5,
+-- 	minZ = 63.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 5,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 63", vector3(-1198.567, -185.0992, 67.82), 0.2, 0.4, {
+-- 	name="Elevator63",
+-- 	heading=37,
+-- 	maxZ = 68.5,
+-- 	minZ = 67.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 6,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 73", vector3(-1198.567, -185.0992, 71.82), 0.2, 0.4, {
+-- 	name="Elevator73",
+-- 	heading=37,
+-- 	maxZ = 72.5,
+-- 	minZ = 71.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 7,
+--         elevator = 3
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 14", vector3(-1196.743, -187.4733, 47.82), 0.2, 0.4, {
+-- 	name="Elevator14",
+-- 	heading=37,
+-- 	maxZ = 48.5,
+-- 	minZ = 47.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 1,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 24", vector3(-1196.743, -187.4733, 51.82), 0.2, 0.4, {
+-- 	name="Elevator24",
+-- 	heading=37,
+-- 	maxZ = 52.5,
+-- 	minZ = 51.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 2,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 34", vector3(-1196.743, -187.4733, 55.82), 0.2, 0.4, {
+-- 	name="Elevator34",
+-- 	heading=37,
+-- 	maxZ = 56.5,
+-- 	minZ = 55.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 3,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 44", vector3(-1196.743, -187.4733, 59.82), 0.2, 0.4, {
+-- 	name="Elevator44",
+-- 	heading=37,
+-- 	maxZ = 60.5,
+-- 	minZ = 59.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 4,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 54", vector3(-1196.743, -187.4733, 63.82), 0.2, 0.4, {
+-- 	name="Elevator54",
+-- 	heading=37,
+-- 	maxZ = 64.5,
+-- 	minZ = 63.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 5,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 64", vector3(-1196.743, -187.4733, 67.82), 0.2, 0.4, {
+-- 	name="Elevator64",
+-- 	heading=37,
+-- 	maxZ = 68.5,
+-- 	minZ = 67.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 6,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Elevator 74", vector3(-1196.743, -187.4733, 71.82), 0.2, 0.4, {
+-- 	name="Elevator74",
+-- 	heading=37,
+-- 	maxZ = 72.5,
+-- 	minZ = 71.7,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenElevator",
+-- 		icon = "fas fa-angle-double-up",
+-- 		label = "Aсансьор",
+-- 		level = 7,
+--         elevator = 4
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Key Holder", vector3(-1199.74, -197.16, 39.32), 1.2, 0.4, {
+-- 	name="Hotel Key Holder",
+-- 	heading = 328,
+-- 	maxZ = 40.3,
+-- 	minZ = 39.32,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenKeyHolder",
+-- 		icon = "fas fa-key",
+-- 		label = "Key Holder"
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Key HolderA", vector3(-1197.35, -199.68, 39.32), 0.6, 1.2, {
+-- 	name="Hotel Key HolderA",
+-- 	heading = 62,
+-- 	maxZ = 39.72,
+-- 	minZ = 38.32,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		job = "crastenburg",
+-- 		event = "nocore-hotel:client:OpenKeyHolderA",
+-- 		icon = "fas fa-key",
+-- 		label = "Admin Key Holder"
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Administation", vector3(-1199.56, -198.0, 39.32), 2.4, 0.4, {
+-- 	name="Hotel Administation",
+-- 	heading = 332,
+-- 	maxZ = 39.72,
+-- 	minZ = 38.32,
+-- 	debugPoly = false
+-- }, {
+-- 	options = {{
+-- 		job = "crastenburg",
+-- 		event = "nocore-bank:OpenBank",
+-- 		icon = "fas fa-credit-card",
+-- 		label = "Bank"
+-- 	},
+-- 	{
+-- 		job = 'crastenburg',
+-- 		event = "nocore-bossmenu:client:OpenMenu",
+-- 		icon = "fas fa-user-alt",
+-- 		label = "Шефско мнею",
+-- 		canInteract = function ()
+-- 			return Framework.Functions.GetPlayerData().job.isboss
+-- 		end
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Hotel Recepciq", vector3(-1203.04, -203.65, 39.32), 0.6, 6.2, {
+-- 	name="Recepciq",
+-- 	heading=62,
+-- 	--debugPoly=true,
+-- 	minZ=39.47,
+-- 	maxZ=39.67
+-- }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenRecepciq",
+-- 		icon = "fas fa-key",
+-- 		label = "Рецепция"
+-- 	}},
+-- 	distance = 2.5
+-- })
+
+-- exports['nocore-eye']:AddBoxZone("Squad-hotel", vector3(-1147.9, -194.62, 4.0), 2, 2, {
+-- 	name="Skuad-hotel",
+-- 	heading=345,
+-- 	--debugPoly=true,
+-- 	minZ=0.4,
+-- 	maxZ=4.4
+--   }, {
+-- 	options = {{
+-- 		event = "nocore-hotel:client:OpenSquad",
+-- 		icon = "fas fa-key",
+-- 		label = "Скуад"
+-- 	}},
+-- 	distance = 2.5
+-- })
